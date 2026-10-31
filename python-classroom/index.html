@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="Interactive Python Programming Modules 1 and 2 — Kiran Mudaraddi" name="description"/><title>Python Programming · Modules 1 & 2 | Kiran Mudaraddi</title>
+<style>
+:root{--bg:#f7f8fc;--card:#fff;--text:#18212f;--muted:#637083;--line:#e4e8ef;--accent:#3776ab;--accent2:#ffd343;--code:#111827;--codeText:#e5e7eb;--shadow:0 10px 30px rgba(20,30,50,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}a{color:inherit;text-decoration:none}button,input{font:inherit}.progress{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));z-index:99}
+header{position:sticky;top:0;z-index:50;background:rgba(247,248,252,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.top{max-width:1400px;margin:auto;padding:12px 20px;display:flex;align-items:center;gap:14px}.brand{font-weight:900;letter-spacing:-.03em;white-space:nowrap}.brand span{color:var(--accent)}.search{flex:1;max-width:600px;margin:auto}.search input{width:100%;padding:11px 15px;border:1px solid var(--line);border-radius:12px;background:var(--card);outline:none}.theme{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:9px 12px;cursor:pointer}
+.layout{display:grid;grid-template-columns:310px minmax(0,1fr);max-width:1400px;margin:auto}aside{position:sticky;top:61px;height:calc(100vh - 61px);overflow:auto;padding:24px 14px;border-right:1px solid var(--line);background:rgba(255,255,255,.45)}aside h4{margin:8px 10px;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.12em}aside a{display:block;padding:7px 10px;border-radius:8px;color:var(--muted);font-size:13px}aside a:hover{background:#edf4fb;color:var(--accent)}main{min-width:0}.hero{padding:70px 6vw 55px;background:radial-gradient(circle at 85% 15%,rgba(55,118,171,.13),transparent 30%),radial-gradient(circle at 10% 10%,rgba(255,211,67,.15),transparent 25%)}.eyebrow{display:inline-flex;padding:6px 10px;border-radius:99px;background:#eaf2f9;color:var(--accent);font-weight:800;font-size:12px}h1{font-size:clamp(42px,6vw,76px);line-height:.98;letter-spacing:-.06em;margin:18px 0}.hero p{max-width:800px;font-size:18px;color:var(--muted)}.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.pill{padding:8px 12px;border:1px solid var(--line);border-radius:99px;background:var(--card);font-size:13px}
+.content{padding:30px 6vw 90px}.part{padding:45px 0 25px;border-top:1px solid var(--line);scroll-margin-top:80px}.part-label{font-size:12px;font-weight:900;letter-spacing:.16em;color:var(--accent)}.part h2{font-size:32px;margin:5px 0}.part-intro{color:var(--muted)}.topic{display:grid;grid-template-columns:52px 1fr;gap:18px;padding:25px 0;border-bottom:1px solid var(--line);scroll-margin-top:80px}.topic-num{width:46px;height:46px;border-radius:14px;background:var(--code);color:#fff;display:grid;place-items:center;font-weight:900}.topic h3{margin:0 0 12px;font-size:24px;letter-spacing:-.02em}.desc{font-size:16px}.four{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0 18px}.four>div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px}.four b{display:block;color:var(--accent);font-size:11px;letter-spacing:.1em}.four span{font-size:13px;color:var(--muted)}.code-card{margin:16px 0;background:var(--code);border-radius:15px;overflow:hidden;box-shadow:var(--shadow)}.code-head{display:flex;justify-content:space-between;align-items:center;padding:9px 13px;background:#0b1220;color:#9ca3af;font-size:12px}.copy{border:1px solid #334155;background:#172033;color:#e5e7eb;border-radius:8px;padding:5px 9px;cursor:pointer}pre{margin:0;overflow:auto;white-space:pre-wrap}.code-card code{display:block;padding:16px;color:var(--codeText);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.55}.output{border-top:1px solid #263244;background:#0d1625;color:#cbd5e1;padding:10px 15px}.output b{font-size:11px;color:#ffd343;text-transform:uppercase;letter-spacing:.08em}.output pre{margin-top:5px;font-size:12px}.checkpoint{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:#eef7f1;border-left:4px solid #3c9a68;border-radius:10px;margin-top:14px}.checkpoint b{white-space:nowrap;color:#26724b}.checkpoint span{color:#496457;font-size:14px}
+.practice-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}details.practice{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:0;overflow:hidden}details.practice summary{padding:14px 16px;cursor:pointer;font-weight:800}details.practice .code-card{margin:0;border-radius:0;box-shadow:none}.appendix{padding-top:35px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.box{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:18px}.box h4{margin-top:0}.checklist li{margin:6px 0}
+footer{padding:35px 6vw;background:#101827;color:#cbd5e1}footer strong{color:white}
+.author-credit{display:flex;align-items:center;gap:14px;width:max-content;max-width:100%;margin:24px 0 8px;padding:13px 20px 13px 15px;border:1px solid #dbe5ef;border-left:5px solid #3776ab;background:linear-gradient(135deg,#ffffff 0%,#f4f8fc 100%);border-radius:14px;box-shadow:0 8px 24px rgba(55,118,171,.12);color:#334155;font-size:.92rem;line-height:1.3}.author-credit:before{content:"KM";display:grid;place-items:center;width:42px;height:42px;flex:0 0 42px;border-radius:12px;background:linear-gradient(135deg,#3776ab,#1f5f91);color:#fff;font-weight:900;font-size:13px;letter-spacing:.03em;box-shadow:0 5px 12px rgba(55,118,171,.25)}.author-credit strong{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:#64748b;margin-bottom:3px}.author-credit span{font-size:1.3rem;font-weight:900;letter-spacing:-.02em;background:linear-gradient(90deg,#1f5f91,#3776ab);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hidden{display:none!important}
+body.dark{--bg:#0b1020;--card:#111827;--text:#edf2f7;--muted:#9aa7ba;--line:#263244;--accent:#74b9ff;--code:#050a12;--codeText:#e5e7eb}body.dark header{background:rgba(11,16,32,.94)}body.dark .author-credit{border-color:#263b55;border-left-color:#74b9ff;background:linear-gradient(135deg,#111827,#172338);color:#cbd5e1;box-shadow:0 8px 24px rgba(0,0,0,.25)}body.dark .author-credit strong{color:#93a4b8}body.dark .author-credit span{background:linear-gradient(90deg,#74b9ff,#b8dcff);-webkit-background-clip:text;background-clip:text;color:transparent}body.dark aside{background:rgba(17,24,39,.55)}body.dark .four>div,body.dark .pill{background:#111827}body.dark .hero{background:radial-gradient(circle at 85% 15%,rgba(116,185,255,.13),transparent 30%)}
+
+/* Mobile course menu */
+.mobile-menu-btn{
+display:none;
+border:1px solid var(--line);
+background:var(--card);
+color:var(--text);
+border-radius:10px;
+padding:9px 11px;
+cursor:pointer;
+font-weight:800;
+font-size:18px;
+line-height:1;
+}
+.mobile-overlay{display:none}
+@media(max-width:980px){
+  .mobile-menu-btn{
+    display:inline-flex!important;
+    align-items:center;
+    justify-content:center;
+    flex:0 0 auto;
+    min-width:78px;
+    height:42px;
+    border:1px solid var(--line);
+    background:var(--card);
+    color:var(--text);
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:800;
+    font-size:15px;
+    line-height:1;
+    position:relative;
+    z-index:101;
+  }
+  .course-sidebar{
+    display:block!important;
+    visibility:visible!important;
+    position:fixed!important;
+    left:0!important;
+    top:61px!important;
+    bottom:0!important;
+    width:min(330px,88vw)!important;
+    height:auto!important;
+    z-index:100!important;
+    overflow-y:auto!important;
+    transform:translateX(-110%)!important;
+    transition:transform .25s ease!important;
+    box-shadow:12px 0 35px rgba(15,23,42,.22);
+  }
+  body.menu-open .course-sidebar{
+    display:block!important;
+    transform:translateX(0)!important;
+  }
+  .mobile-overlay{
+    position:fixed!important;
+    inset:61px 0 0 0!important;
+    z-index:90!important;
+    background:rgba(15,23,42,.42);
+    backdrop-filter:blur(2px);
+  }
+  body.menu-open .mobile-overlay{display:block!important}
+}
+@media(max-width:650px){
+  .top{gap:8px}
+  .mobile-menu-btn{font-size:17px;padding:8px 10px}
+}
+
+@media(max-width:980px){.layout{grid-template-columns:1fr}aside{display:none}.four{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr 1fr}}@media(max-width:650px){.top{padding:10px}.brand{font-size:14px}.search{display:none}.hero{padding:50px 22px 40px}.content{padding:20px 22px 60px}.topic{grid-template-columns:1fr}.topic-num{width:40px;height:40px}.four,.practice-list,.grid{grid-template-columns:1fr}h1{font-size:48px}}
+
+
+/* Screenshot-inspired course sidebar */
+.course-sidebar{padding:0 14px 28px;background:var(--card);border-right:1px solid var(--line)}
+.side-module{padding:34px 12px 22px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.side-kicker{font-size:12px;font-weight:950;letter-spacing:.08em;color:var(--text);margin-bottom:3px}
+.side-title{font-size:13px;color:var(--accent);line-height:1.45;font-weight:650}
+.side-subtitle{font-size:13px;color:var(--muted);line-height:1.45}
+.side-nav{padding-bottom:20px}
+.side-home{display:flex!important;align-items:center;gap:9px;margin:5px 0 12px;padding:12px 13px!important;font-weight:800!important;color:var(--accent)!important;background:#eef0ff}
+.side-home:hover{background:#e8eaff!important}
+.side-icon{font-size:18px;line-height:1}
+.side-section{margin:5px 0 12px}
+.side-part{padding:9px 10px 7px!important;border-radius:8px!important;color:var(--text)!important}
+.side-part:hover{background:transparent!important;color:var(--accent)!important}
+.side-part span{display:block;font-size:12px;font-weight:950;letter-spacing:.1em;color:var(--accent)}
+.side-part small{display:block;font-size:12px;line-height:1.35;color:var(--muted);margin-top:1px;font-weight:650}
+.side-topic{display:flex!important;align-items:flex-start;gap:10px;padding:8px 10px!important;margin:2px 0;border-radius:8px!important;font-size:14px!important;line-height:1.42!important;color:#526078!important;font-weight:600!important}
+.side-topic b{min-width:27px;color:#64748b;font-size:12px;font-weight:900;letter-spacing:.02em}
+.side-topic:hover{background:#f1f4fa!important;color:var(--accent)!important}
+.side-topic:hover b{color:var(--accent)}
+.side-tools{border-top:1px solid var(--line);margin-top:12px;padding-top:10px}
+.side-tools a{display:flex!important;align-items:center;gap:9px;padding:8px 10px!important;font-size:12.5px!important}
+.side-tools span{width:18px;text-align:center}.notes-download{
+display:flex!important;
+align-items:center;
+gap:9px;
+margin-top:4px;
+padding:10px 10px!important;
+border-radius:9px!important;
+background:linear-gradient(135deg,#eef5ff,#f8fbff);
+border:1px solid #dbe8f7;
+color:#245b8f!important;
+font-size:12.5px!important;
+font-weight:800!important;
+}
+.notes-download:hover{
+background:linear-gradient(135deg,#e2efff,#eef6ff)!important;
+color:#1d4ed8!important;
+border-color:#bfd8f2;
+transform:translateY(-1px);
+}
+body.dark .notes-download{
+background:linear-gradient(135deg,#17263a,#152033);
+border-color:#304765;
+color:#9dccff!important;
+}
+body.dark .notes-download:hover{
+background:#1b3049!important;
+color:#b9dcff!important;
+}
+body.dark .side-home{background:#182342;color:#8ca9ff!important}
+body.dark .side-topic{color:#aab5c8!important}
+body.dark .side-topic:hover{background:#182334!important;color:#74b9ff!important}
+body.dark .side-part span{color:#74b9ff}
+@media(max-width:980px){.course-sidebar{display:none}}
+/* macOS-style code window dots + learning diagrams */
+.code-head{display:flex;align-items:center;gap:8px;position:relative;padding-left:74px}.code-head:before{content:"";position:absolute;left:14px;top:50%;transform:translateY(-50%);width:11px;height:11px;border-radius:50%;background:#ff5f57;box-shadow:18px 0 #febc2e,36px 0 #28c840}.code-head i{display:none}.code-head span{font-weight:700}
+.diagram{margin:22px 0;padding:20px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,#fff, #f6f9fd);overflow:auto}.diagram-title{font-weight:800;text-align:center;margin-bottom:14px;color:var(--text)}.flow{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}.node{min-width:130px;padding:13px 16px;border:2px solid #3776ab;border-radius:12px;background:#fff;text-align:center;font-weight:700;box-shadow:0 5px 12px rgba(20,30,50,.06)}.node.process{border-radius:8px}.node.decision{transform:rotate(45deg);width:105px;height:105px;min-width:105px;display:grid;place-items:center}.node.decision span{transform:rotate(-45deg)}.arrow{font-size:24px;font-weight:900;color:#3776ab}.stack{display:flex;flex-direction:column;align-items:center;gap:8px}.loopbox{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:720px;margin:auto}.mini{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff}.mini b{display:block;margin-bottom:4px}.code-flow{display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap}.code-flow .node{min-width:150px}.matrix{display:grid;grid-template-columns:repeat(4,minmax(70px,1fr));gap:6px;max-width:520px;margin:auto}.matrix span{padding:10px;text-align:center;border:1px solid #cbd5e1;border-radius:8px;background:#fff}.fnflow{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}.fnflow .node{min-width:145px}.cycle{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:700px;margin:auto}.cycle .mini{text-align:center}.varbox{display:flex;justify-content:center;align-items:center;gap:18px;flex-wrap:wrap}.memory{padding:18px 24px;border:2px solid #3776ab;border-radius:14px;background:#fff;min-width:190px;text-align:center}.pointer{font-size:28px;color:#3776ab}.dark .diagram{background:#111827;border-color:#374151}.dark .node,.dark .mini,.dark .matrix span,.dark .memory{background:#18212f;border-color:#4b647c}.dark .diagram-title{color:#f3f4f6}
+@media(max-width:700px){.loopbox,.cycle{grid-template-columns:1fr}.matrix{grid-template-columns:repeat(2,1fr)}.code-head{padding-left:68px}}
+
+
+/* Python Runner — clean educational IDE */
+.python-runner{max-width:1180px;margin:0 auto;padding:34px 24px 64px;scroll-margin-top:80px}
+.runner-card{background:var(--card);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 16px 40px rgba(20,30,50,.08)}
+.runner-head{padding:24px 26px 20px;background:linear-gradient(135deg,#f7fbff,#fff);border-bottom:1px solid var(--line)}
+.runner-heading{display:flex;align-items:center;gap:13px}
+.runner-python-badge{width:46px;height:46px;display:grid;place-items:center;border-radius:14px;background:#3776ab;color:#fff;font-size:23px;box-shadow:0 7px 16px rgba(55,118,171,.2)}
+.runner-head h2{margin:0;font-size:clamp(1.5rem,2.8vw,2rem);letter-spacing:-.035em}
+.runner-head p{margin:4px 0 0;color:var(--muted);font-size:.9rem}
+.runner-subbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px}
+.runner-subbar span{font-size:.78rem;color:var(--muted)}
+.runner-engine{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:99px;background:#eef7f1;color:#26724b;font-size:.7rem;font-weight:800}
+.runner-engine:before{content:"";width:7px;height:7px;border-radius:50%;background:#28a05a}
+.runner-main{padding:20px 22px 0}
+.runner-code-shell{border:1px solid #27364a;border-radius:16px;overflow:hidden;background:#0b1220;box-shadow:0 8px 24px rgba(15,23,42,.12)}
+.runner-code-top{display:flex;align-items:center;justify-content:space-between;padding:10px 13px;background:#111b2b;color:#b9c6d8;font-size:.74rem}
+.runner-file-name{display:flex;align-items:center;gap:8px;font-weight:800}
+.runner-py-dot{width:9px;height:9px;border-radius:50%;background:#3776ab}
+.runner-code-tools{display:flex;gap:7px}
+.runner-mini-btn{border:1px solid #33445b;background:#172338;color:#dbe7f5;border-radius:7px;padding:5px 9px;font-size:.7rem;cursor:pointer}
+.runner-editor{display:grid;grid-template-columns:42px 1fr;min-height:260px}
+.runner-lines{padding:14px 8px 14px 0;background:#080f1b;color:#596a7f;text-align:right;font:12px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;user-select:none;overflow:hidden}
+.runner-lines div{height:20.4px}
+.runner-code{width:100%;min-height:260px;box-sizing:border-box;border:0;outline:0;resize:none;overflow:auto;background:#0b1220;color:#e7edf6;padding:14px;font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;tab-size:4;white-space:pre}
+.runner-code:focus{box-shadow:inset 0 0 0 1px rgba(96,165,250,.35)}
+.runner-tip{margin:8px 2px 0;font-size:.72rem;color:var(--muted)}
+.runner-io{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.runner-panel{min-width:0}
+.runner-label{display:flex;align-items:center;justify-content:space-between;margin:0 0 7px;font-size:.76rem;font-weight:850;color:var(--text)}
+.runner-label small{font-size:.66rem;font-weight:600;color:var(--muted)}
+.runner-input{width:100%;min-height:100px;box-sizing:border-box;resize:vertical;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--text);padding:11px;font:12px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;outline:none}
+.runner-input:focus{border-color:#60a5fa;box-shadow:0 0 0 3px rgba(96,165,250,.12)}
+.runner-output pre{margin:0;min-height:100px;max-height:190px;overflow:auto;box-sizing:border-box;white-space:pre-wrap;word-break:break-word;border:1px solid #26364a;border-radius:12px;background:#07101d;color:#dbeafe;padding:11px;font:12px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.runner-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:18px 22px 12px;margin-top:18px;border-top:1px solid var(--line)}
+.runner-btn{border:0;border-radius:9px;padding:10px 15px;font-weight:850;font-size:.8rem;cursor:pointer}
+.runner-btn.primary{background:#3776ab;color:#fff;box-shadow:0 5px 12px rgba(55,118,171,.18)}
+.runner-btn.primary:hover{background:#2e6797}
+.runner-btn.secondary{background:var(--card);color:var(--text);border:1px solid var(--line)}
+.runner-btn.secondary:hover{border-color:#9bb9d7;background:#f7fbff}
+.runner-status{padding:0 22px 17px;color:var(--muted);font-size:.75rem}
+body.dark .runner-head{background:linear-gradient(135deg,#111b2b,#111827)}
+body.dark .runner-engine{background:#142a20;color:#86d5a4}
+body.dark .runner-btn.secondary:hover{background:#172338}
+body.dark .runner-input{background:#0f1725}
+@media(max-width:720px){
+  .python-runner{padding:26px 14px 48px}
+  .runner-card{border-radius:19px}
+  .runner-head{padding:19px 17px 16px}
+  .runner-python-badge{width:40px;height:40px;flex-basis:40px;border-radius:12px;font-size:20px}
+  .runner-head h2{font-size:1.35rem}
+  .runner-head p{font-size:.78rem}
+  .runner-subbar{margin-top:14px}
+  .runner-main{padding:15px 14px 0}
+  .runner-editor{min-height:230px}
+  .runner-code{min-height:230px;font-size:12px}
+  .runner-io{grid-template-columns:1fr;gap:13px}
+  .runner-input,.runner-output pre{min-height:82px}
+  .runner-actions{padding:14px;margin-top:14px;display:grid;grid-template-columns:1fr 1fr}
+  .runner-btn{min-height:42px}
+  .runner-status{padding:0 14px 14px}
+}
+@media(max-width:390px){
+  .runner-head{padding:16px 14px}
+  .runner-heading{gap:9px}
+  .runner-python-badge{width:36px;height:36px;flex-basis:36px;font-size:18px}
+  .runner-head h2{font-size:1.2rem}
+  .runner-head p{display:none}
+  .runner-subbar span{font-size:.68rem}
+  .runner-code-tools{display:none}
+  .runner-editor{grid-template-columns:34px 1fr;min-height:215px}
+  .runner-code{min-height:215px;font-size:11.5px}
+  .runner-lines{font-size:10px}
+}
+
+
+/* FA1 submission portal */
+.fa1-portal{margin:26px 0 34px;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:24px;box-shadow:0 14px 35px rgba(20,30,50,.08)}
+.fa1-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;padding-bottom:18px;border-bottom:1px solid var(--border)}
+.fa1-badge{display:inline-block;padding:6px 10px;border-radius:999px;background:#eaf2f9;color:#245b8f;font-size:.72rem;font-weight:900;letter-spacing:.08em}
+.fa1-head h2{margin:8px 0 3px;font-size:clamp(1.6rem,3vw,2.35rem)}
+.fa1-head p{margin:0;color:var(--muted)}
+.fa1-lock{padding:10px 13px;border-radius:12px;background:#fff7ed;color:#9a3412;border:1px solid #fed7aa;font-weight:850;white-space:nowrap}
+.fa1-note{margin:18px 0;padding:13px 15px;border-left:4px solid #3776ab;background:#f5f9fd;border-radius:10px;color:#475569}
+.fa1-student-details{margin:18px 0 12px}
+.access-message{padding:11px 14px;border-radius:12px;background:#f8fafc;border:1px solid var(--border);color:var(--muted);font-size:.9rem}
+.fa1-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+.fa1-card{background:linear-gradient(135deg,#fff,#f8fbff);border:1px solid #dbe5ef;border-radius:18px;padding:19px;display:flex;flex-direction:column;min-height:340px}
+.fa1-card-top{display:flex;align-items:center;justify-content:space-between;font-size:1.35rem}.mark-badge{font-size:.68rem;padding:5px 8px;border-radius:999px;background:#eef7f1;color:#26724b;font-weight:900;letter-spacing:.06em}
+.fa1-card h3{margin:13px 0 7px;font-size:1.08rem}.fa1-card p{margin:0 0 12px;color:var(--muted);font-size:.91rem}.fa1-card ul{margin:12px 0;padding-left:19px;color:var(--muted);font-size:.83rem}.fa1-card li{margin:4px 0}
+.fa1-example{padding:10px 12px;border-radius:11px;background:#f1f5f9;color:#475569;font-size:.8rem;line-height:1.5;margin-bottom:10px}
+.file-input{width:100%;padding:9px;border:1px dashed #9bb9d7;border-radius:10px;background:#fff;margin-top:auto;font-size:.78rem}
+.fa1-upload-btn{width:100%;margin-top:10px;border:0;border-radius:10px;padding:11px 13px;background:#3776ab;color:#fff;font-weight:850;cursor:pointer}.fa1-upload-btn:hover{background:#2e6797}.fa1-upload-btn:disabled{opacity:.45;cursor:not-allowed}
+.upload-status{min-height:20px;margin-top:8px;font-size:.78rem;color:#26724b}.quiz-mini{margin-top:auto;padding-top:12px;color:var(--muted);font-size:.8rem}
+.fa1-submission-rule{margin-top:18px;padding:13px 15px;background:#fffaf0;border:1px solid #fde68a;border-radius:12px;color:#713f12;font-size:.83rem}
+.fa1-disabled{opacity:.55;pointer-events:none}
+.fa1-quiz-hidden{display:none!important}
+body.dark .fa1-card{background:linear-gradient(135deg,#111827,#172338);border-color:#304765}.dark .fa1-note,.dark .fa1-example{background:#182334;color:#cbd5e1}.dark .fa1-lock{background:#2a1c12;border-color:#6b4326;color:#fdba74}.dark .access-message{background:#111827}.dark .fa1-submission-rule{background:#2a2110;border-color:#725d20;color:#fde68a}.dark .file-input{background:#0f172a;color:#e5e7eb}
+@media(max-width:900px){.fa1-grid{grid-template-columns:1fr}.fa1-head{flex-direction:column}.fa1-lock{white-space:normal}}
+
+/* Question Bank & Quiz */
+.assessment-wrap{max-width:1180px;margin:0 auto;padding:32px 24px 70px}
+.assessment-hero{background:linear-gradient(135deg,var(--card),var(--soft));border:1px solid var(--border);border-radius:24px;padding:28px;margin-bottom:24px}
+.assessment-hero h2{margin:0 0 8px;font-size:clamp(1.7rem,3vw,2.5rem)}
+.assessment-hero p{margin:6px 0;color:var(--muted);line-height:1.65}
+.question-bank{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin-top:18px}
+.q-item{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 16px;line-height:1.55}
+.q-num{font-weight:800;color:var(--accent);margin-right:6px}.q-section{margin:28px 0 10px;font-size:1.2rem}
+.quiz-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:22px;margin-top:28px;box-shadow:0 12px 30px rgba(0,0,0,.06)}
+.quiz-question{padding:18px 0;border-bottom:1px solid var(--border)}
+.quiz-question:last-child{border-bottom:0}.quiz-question h4{margin:0 0 12px}.quiz-option{display:block;margin:8px 0;padding:10px 12px;border:1px solid var(--border);border-radius:10px;cursor:pointer}
+.quiz-option:hover{background:var(--soft)}.quiz-option input{margin-right:9px}
+.quiz-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:18px}.quiz-btn{border:0;border-radius:10px;padding:11px 17px;background:var(--accent);color:#fff;font-weight:800;cursor:pointer}.quiz-reset{background:var(--soft);color:var(--text);border:1px solid var(--border)}
+.quiz-result{font-weight:800;margin-top:14px;padding:14px;border-radius:12px;background:var(--soft);display:none}.quiz-feedback{font-size:.92rem;color:var(--muted);margin-top:6px}
+.traffic{position:relative;display:inline-block;width:46px;height:14px;flex:0 0 46px}.traffic:before{content:'●  ●  ●';letter-spacing:4px;font-size:14px;line-height:14px;color:#ef4444;text-shadow:9px 0 #f59e0b,18px 0 #22c55e}.code-head .traffic{margin-right:4px}
+@media(max-width:700px){.assessment-wrap{padding:24px 14px 50px}.question-bank{grid-template-columns:1fr}}
+
+/* Click-to-go syllabus navigation */
+.syllabus-title{margin:20px 0 8px;padding:10px 12px;border-radius:12px;background:linear-gradient(135deg,#eff6ff,#dbeafe);border:1px solid #bfdbfe;color:#1d4ed8;font-size:.76rem;font-weight:900;letter-spacing:.08em;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.syllabus-title span{font-size:.6rem;background:#2563eb;color:#fff;padding:4px 7px;border-radius:999px;letter-spacing:.02em;white-space:nowrap}
+.syllabus-group{margin:0 0 10px;padding:5px 0 8px;border-bottom:1px solid rgba(100,116,139,.16)}
+.syllabus-part{font-weight:900!important;color:#1d4ed8!important;background:rgba(37,99,235,.08);border-radius:8px;margin:2px 0 4px;padding:8px 10px!important}
+.syllabus-topic{font-size:.77rem!important;padding:5px 8px 5px 10px!important;color:#475569!important;display:flex!important;align-items:center;gap:7px}
+.syllabus-topic span{min-width:24px;height:22px;display:inline-grid;place-items:center;border-radius:6px;background:#f1f5f9;color:#64748b;font-size:.66rem;font-weight:800}
+.syllabus-topic:hover{color:#1d4ed8!important;background:#eff6ff}
+.syllabus-topic:hover span{background:#dbeafe;color:#1d4ed8}
+@media (prefers-color-scheme:dark){.syllabus-title{background:#172554;border-color:#1e40af;color:#bfdbfe}.syllabus-part{color:#93c5fd!important;background:rgba(59,130,246,.12)}.syllabus-topic{color:#cbd5e1!important}.syllabus-topic span{background:#1e293b;color:#94a3b8}.syllabus-topic:hover{color:#bfdbfe!important;background:#172554}.syllabus-topic:hover span{background:#1e3a8a;color:#bfdbfe}}
+
+/* Natural learning journey — the four-stage teaching flow is visual, not labelled */
+.learning-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0 18px;padding:8px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,rgba(55,118,171,.055),rgba(255,211,67,.08));}
+.learning-step{position:relative;display:flex;align-items:center;gap:8px;padding:9px 10px;border-radius:11px;background:var(--card);border:1px solid var(--line);font-size:.82rem;font-weight:700;color:var(--muted);transition:.2s ease;}
+.learning-step b{display:grid;place-items:center;min-width:25px;height:25px;border-radius:50%;background:var(--accent);color:#fff;font-size:.72rem;}
+.learning-step:nth-child(2) b{background:#5b7c99}.learning-step:nth-child(3) b{background:#d49a00}.learning-step:nth-child(4) b{background:#16834d}
+.learning-step:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 7px 16px rgba(20,30,50,.08);color:var(--text)}
+@media(max-width:760px){.learning-flow{grid-template-columns:1fr 1fr}.learning-step{font-size:.76rem}}
+@media(max-width:430px){.learning-flow{grid-template-columns:1fr}.learning-step{padding:8px}}
+
+/* Natural teaching flow: question → concept → example → output */
+.think-question{margin:18px 0 10px;padding:16px 18px;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:14px;background:var(--soft);box-shadow:0 5px 18px rgba(15,23,42,.05)}
+.think-question span,.concept-note span,.example-label{display:block;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
+.think-question strong{display:block;font-size:1.02rem;line-height:1.5;color:var(--text)}
+.concept-note{margin:4px 0 8px;font-size:.8rem}
+.example-label{margin:14px 0 7px}
+@media(max-width:700px){.think-question{padding:13px 14px}.think-question strong{font-size:.96rem}}
+
+.topic-question{margin:4px 0 16px;padding:14px 17px;border:1px solid #dbe5ff;border-left:4px solid var(--accent);background:linear-gradient(90deg,#f5f8ff,#ffffff);border-radius:12px;color:#172554;font-size:16px;line-height:1.55;box-shadow:0 5px 18px rgba(37,99,235,.06)}
+.topic-question strong{font-weight:800}
+body.dark .topic-question{background:linear-gradient(90deg,#101b31,#111827);border-color:#263d67;color:#dbeafe}
+.topic-main>.desc{margin-top:0}
+
+/* Student Assessment Portal */
+.student-details{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0 24px;padding:20px;border:1px solid #dbe4ff;border-radius:18px;background:linear-gradient(135deg,#f7f9ff,#eef4ff)}
+.student-details label{display:flex;flex-direction:column;gap:7px;font-weight:700;font-size:.9rem;color:#17305f}
+.student-details input,.student-details select{width:100%;box-sizing:border-box;border:1px solid #cfd8ea;border-radius:10px;padding:11px 12px;background:#fff;color:#172033;font:inherit;outline:none}
+.student-details input:focus,.student-details select:focus{border-color:#5b4ee5;box-shadow:0 0 0 3px rgba(91,78,229,.12)}
+.quiz-actions{position:sticky;bottom:14px;z-index:20;display:flex;gap:10px;align-items:center;padding:12px;border-radius:16px;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);box-shadow:0 8px 28px rgba(20,32,70,.14);border:1px solid #e1e6f0}
+.quiz-btn{cursor:pointer}
+.quiz-btn:disabled{opacity:.6;cursor:not-allowed}
+.quiz-result{margin-top:18px;padding:18px;border-radius:16px}
+.assessment-note{margin:0 0 16px;padding:12px 14px;border-radius:12px;background:#f8fafc;font-size:.92rem}
+.dark .student-details{background:linear-gradient(135deg,#17213d,#121a2d);border-color:#33415f}
+.dark .student-details label{color:#dbe5ff}
+.dark .student-details input,.dark .student-details select{background:#0f172a;color:#f8fafc;border-color:#3b4a68}
+.dark .quiz-actions{background:rgba(15,23,42,.94);border-color:#33415f}
+.dark .assessment-note{background:#111b30}
+@media(max-width:760px){.student-details{grid-template-columns:1fr}.quiz-actions{position:sticky;bottom:8px;flex-wrap:wrap}}
+
+/* Interactive predict-output and debugging activities */
+.interactive-lab{margin:28px 0;padding:clamp(18px,3vw,30px);border:1px solid var(--line);border-radius:20px;background:var(--card);box-shadow:var(--shadow)}
+.interactive-lab .lab-kicker{font-size:.76rem;letter-spacing:.09em;font-weight:900;color:var(--accent);text-transform:uppercase}
+.interactive-lab h2{margin:5px 0 8px}.interactive-lab .lab-intro{color:var(--muted);margin:0 0 20px}
+.activity-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:14px}
+.activity-card{border:1px solid var(--line);border-radius:14px;padding:16px;min-width:0;background:var(--bg)}
+.activity-type{display:inline-block;font-size:.7rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase;padding:4px 8px;border-radius:999px;background:rgba(55,118,171,.12);color:var(--accent);margin-bottom:9px}
+.activity-card h3{font-size:1.02rem;margin:0 0 8px}.activity-card p{margin:8px 0}.activity-card pre{overflow:auto;white-space:pre;margin:10px 0;padding:12px;border-radius:9px;background:var(--code);color:var(--codeText);font-size:.88rem}
+.activity-card details{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}.activity-card summary{cursor:pointer;font-weight:800;color:var(--accent)}.activity-answer{padding:10px 0 0;color:var(--text)}.activity-answer strong{color:var(--accent)}
+@media(max-width:600px){.interactive-lab{padding:15px}.activity-card{padding:13px}}
+/* Guided learning path — separate from existing module content */
+.guided-path{margin:28px 0;padding:clamp(16px,3vw,26px);border:1px solid var(--line);border-radius:20px;background:var(--card);box-shadow:var(--shadow)}.guided-path .gp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:13px}.guided-path .gp-step{padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--bg)}.guided-path .gp-step h3{margin:6px 0}.guided-path .gp-step p{color:var(--muted);margin:5px 0 12px}.guided-path .gp-tag{font-size:.72rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}.guided-path .gp-actions{display:flex;gap:10px;flex-wrap:wrap}.guided-path .gp-btn{display:inline-block;padding:9px 12px;border-radius:9px;background:var(--accent);color:white;text-decoration:none;font-weight:800;font-size:.9rem}.guided-path .gp-check{display:flex;gap:8px;align-items:center;font-weight:750;margin-top:10px}.guided-path .gp-check input{width:18px;height:18px;accent-color:#16835d}.guided-path .gp-progress{height:9px;background:var(--line);border-radius:99px;overflow:hidden;margin:12px 0}.guided-path .gp-fill{height:100%;width:0;background:#16835d;transition:width .2s}.guided-path .gp-mini{margin-top:18px;padding:18px;border-radius:14px;background:var(--code);color:var(--codeText)}.guided-path .gp-mini p{color:var(--codeText)}.guided-path .gp-mini code{white-space:pre-wrap}
+/* Visual refresh: blue-purple gradient hero with high-contrast learning content */
+:root{--bg:#f5f7fc;--card:#ffffff;--text:#182033;--muted:#5f6d83;--line:#e3e8f2;--accent:#4263c7;--accent2:#ffd343;--shadow:0 12px 34px rgba(27,39,83,.09)}
+header{background:#202124;color:#fff;border-bottom:1px solid rgba(255,255,255,.1)}
+header .brand,header .top a{color:#fff}
+header .brand span{color:#a9b9ff}
+header .search input{background:#30333b;color:#fff;border-color:#484c57}
+header .theme{background:#30333b;color:#fff;border-color:#484c57}
+.hero{position:relative;isolation:isolate;overflow:hidden;padding:clamp(54px,7vw,92px) clamp(22px,6vw,86px) clamp(42px,5vw,64px);background:linear-gradient(118deg,#243c91 0%,#5264b5 28%,#8584c8 57%,#5a4e91 100%) !important;color:#fff}
+.hero:before{content:"";position:absolute;z-index:-1;inset:-18%;background:radial-gradient(ellipse at 22% 28%,rgba(72,139,255,.75),transparent 35%),radial-gradient(ellipse at 75% 18%,rgba(190,154,255,.65),transparent 31%),radial-gradient(ellipse at 62% 82%,rgba(255,255,255,.19),transparent 34%);filter:blur(28px);pointer-events:none}
+.hero:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(10,20,60,.14),rgba(28,20,70,.08));pointer-events:none}
+.hero .eyebrow{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);color:#fff;backdrop-filter:blur(8px)}
+.hero h1{color:#fff;text-shadow:0 2px 25px rgba(14,18,56,.16)}
+.hero p{color:rgba(255,255,255,.9)}
+.hero .author-credit{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.27);border-left-color:#ffd343;color:#fff;backdrop-filter:blur(12px);box-shadow:0 8px 28px rgba(16,20,65,.12)}
+.hero .author-credit strong{color:rgba(255,255,255,.75)}
+.hero .author-credit:before{background:linear-gradient(135deg,#fff,#dce5ff);color:#283a85;box-shadow:none}
+.hero .author-credit span{background:none;-webkit-text-fill-color:#fff;color:#fff}
+.hero .meta .pill{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25);color:#fff;backdrop-filter:blur(8px)}
+.hero a[style*="background:var(--accent)"]{background:#fff!important;color:#25264d!important;box-shadow:0 8px 24px rgba(17,20,60,.18)!important}
+.hero a[style*="border:1px solid var(--line)"]{background:rgba(255,255,255,.10)!important;border-color:rgba(255,255,255,.38)!important;color:#fff!important;backdrop-filter:blur(8px)}
+.hero .module-launcher{color:#fff}
+.hero .module-launcher h2{color:#fff}
+.hero .module-launcher>p{color:rgba(255,255,255,.82)!important}
+.hero .module-launcher a{background:rgba(255,255,255,.94)!important;border-color:rgba(255,255,255,.55)!important;color:#242b54!important;box-shadow:0 8px 22px rgba(19,23,67,.12)!important;transition:transform .18s ease,box-shadow .18s ease}
+.hero .module-launcher a:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(19,23,67,.22)!important}
+aside{background:#fbfcff}
+.activity-card,.gp-step{transition:transform .18s ease,box-shadow .18s ease}
+.activity-card:hover,.gp-step:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(27,39,83,.08)}
+body.dark .hero{background:linear-gradient(118deg,#121b48 0%,#292f70 35%,#45386f 70%,#251e49 100%)!important}
+body.dark .hero:before{background:radial-gradient(ellipse at 22% 28%,rgba(72,139,255,.38),transparent 35%),radial-gradient(ellipse at 75% 18%,rgba(190,154,255,.35),transparent 31%)}
+body.dark aside{background:rgba(17,24,39,.72)}
+@media(max-width:650px){.hero{padding:48px 20px 36px}.hero h1{font-size:clamp(42px,12vw,58px)}.hero .module-launcher{margin-top:25px!important}}
+</style></head><body><div class="progress" id="progress"></div>
+<header><div class="top"><button type="button" class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open module menu" aria-expanded="false">☰ MENU</button><a class="brand" href="#top">Kiran Mudaraddi <span>Python Learning Hub</span></a><div class="search"><input id="search" oninput="filterTopics()" placeholder="Search topics, loops, functions..."/></div><button class="theme" onclick="toggleTheme()">☾</button></div></header><div class="mobile-overlay" onclick="toggleMobileMenu()"></div>
+<div class="layout"><aside class="course-sidebar">
+<div class="side-module">
+<div class="side-kicker">PYTHON PROGRAMMING</div>
+<div class="side-title">Learning Modules</div>
+<div class="side-subtitle">Select a module</div>
+</div>
+<div class="side-module-picker" aria-label="Choose Python module" style="padding:0 14px 16px;display:grid;gap:8px">
+<a href="#top" style="display:block;padding:11px 12px;border-radius:10px;background:var(--accent);color:#fff;border:1px solid var(--accent)">
+<strong style="display:block;font-size:.85rem">Module 1</strong><span style="font-size:.76rem;line-height:1.35;display:block">The Way of the Program</span><span style="font-size:.7rem;opacity:.9">Available</span></a>
+<a href="#module-2" style="display:block;padding:11px 12px;border-radius:10px;background:var(--bg);border:1px solid var(--line)">
+<strong style="display:block;font-size:.85rem">Module 2</strong><span style="font-size:.76rem;line-height:1.35;display:block">Strings, Tuples and Lists</span><span style="font-size:.7rem;color:var(--accent)">Available →</span></a>
+<a href="module-3.html" style="display:block;padding:11px 12px;border-radius:10px;background:var(--bg);border:1px solid var(--line)"><strong style="display:block;font-size:.85rem">Module 3</strong><span style="font-size:.76rem;line-height:1.35;display:block">Dictionaries · NumPy · File Handling</span><span style="font-size:.7rem;color:var(--accent)">Available →</span></a>
+<div style="padding:9px 12px;border:1px dashed var(--line);border-radius:10px;color:var(--muted)"><strong style="display:block;font-size:.82rem">Module 4</strong><span style="font-size:.75rem">Under construction</span></div>
+<div style="padding:9px 12px;border:1px dashed var(--line);border-radius:10px;color:var(--muted)"><strong style="display:block;font-size:.82rem">Module 5</strong><span style="font-size:.75rem">Under construction</span></div>
+</div>
+<nav aria-label="Module 1 topic navigation" class="side-nav">
+<a class="side-home active" href="#top"><span class="side-icon">⌂</span><span>Home</span></a>
+<div class="side-section">
+<a class="side-part" href="#part-A"><span>PART A</span><small>The Way of the Program</small></a>
+<a class="side-topic" href="#topic-1"><b>01</b><span>The Python Programming Language</span></a>
+<a class="side-topic" href="#topic-2"><b>02</b><span>What is a Program?</span></a>
+<a class="side-topic" href="#topic-3"><b>03</b><span>What is Debugging?</span></a>
+<a class="side-topic" href="#topic-4"><b>04</b><span>Syntax Errors</span></a>
+<a class="side-topic" href="#topic-5"><b>05</b><span>Runtime Errors</span></a>
+<a class="side-topic" href="#topic-6"><b>06</b><span>Semantic Errors</span></a>
+<a class="side-topic" href="#topic-7"><b>07</b><span>Experimental Debugging</span></a>
+</div>
+<div class="side-section">
+<a class="side-part" href="#part-B"><span>PART B</span><small>Variables, Expressions &amp; Statements</small></a>
+<a class="side-topic" href="#topic-8"><b>08</b><span>Values and Data Types</span></a>
+<a class="side-topic" href="#topic-9"><b>09</b><span>Variables</span></a>
+<a class="side-topic" href="#topic-10"><b>10</b><span>Variable Names and Keywords</span></a>
+<a class="side-topic" href="#topic-11"><b>11</b><span>Statements</span></a>
+<a class="side-topic" href="#topic-12"><b>12</b><span>Evaluating Expressions</span></a>
+<a class="side-topic" href="#topic-13"><b>13</b><span>Operators and Operands</span></a>
+<a class="side-topic" href="#topic-14"><b>14</b><span>Type Converter Functions</span></a>
+<a class="side-topic" href="#topic-15"><b>15</b><span>Order of Operations</span></a>
+<a class="side-topic" href="#topic-16"><b>16</b><span>Operations on Strings</span></a>
+<a class="side-topic" href="#topic-17"><b>17</b><span>Input</span></a>
+<a class="side-topic" href="#topic-18"><b>18</b><span>Composition</span></a>
+<a class="side-topic" href="#topic-19"><b>19</b><span>The Modulus Operator</span></a>
+</div>
+<div class="side-section">
+<a class="side-part" href="#part-C"><span>PART C</span><small>Iteration</small></a>
+<a class="side-topic" href="#topic-20"><b>20</b><span>Assignment</span></a>
+<a class="side-topic" href="#topic-21"><b>21</b><span>Updating Variables</span></a>
+<a class="side-topic" href="#topic-22"><b>22</b><span>The for Loop</span></a>
+<a class="side-topic" href="#topic-23"><b>23</b><span>The while Statement</span></a>
+<a class="side-topic" href="#topic-24"><b>24</b><span>The Collatz 3n + 1 Sequence</span></a>
+<a class="side-topic" href="#topic-25"><b>25</b><span>Tables</span></a>
+<a class="side-topic" href="#topic-26"><b>26</b><span>Two-Dimensional Tables</span></a>
+<a class="side-topic" href="#topic-27"><b>27</b><span>break Statement</span></a>
+<a class="side-topic" href="#topic-28"><b>28</b><span>continue Statement</span></a>
+<a class="side-topic" href="#topic-29"><b>29</b><span>Paired Data</span></a>
+<a class="side-topic" href="#topic-30"><b>30</b><span>Nested Loops for Nested Data</span></a>
+</div>
+<div class="side-section">
+<a class="side-part" href="#part-D"><span>PART D</span><small>Functions</small></a>
+<a class="side-topic" href="#topic-31"><b>31</b><span>Functions with Arguments</span></a>
+<a class="side-topic" href="#topic-32"><b>32</b><span>Return Values</span></a>
+</div>
+<div class="side-tools"><a href="module-3.html"><span>📘</span> Module 3 · Dictionaries, NumPy &amp; Files</a>
+
+<a href="#practice"><span>🧪</span> Practice</a>
+<a href="#python-runner"><span>▶️</span> Run Python</a>
+<a class="notes-download" href="https://raw.githubusercontent.com/kiranmudaraddi/python/main/MODULE-1_PYTHON_NOTES.pdf" download><span>📘</span> Download Module 1 Notes</a>
+<a href="#assessment"><span>🎯</span> Quiz · 10 Marks</a>
+<a href="#assessment"><span>📝</span> Assignment · 20 Marks</a>
+<a href="#assessment"><span>🏆</span> FA1 · 20 Marks</a>
+</div>
+
+<div class="side-section">
+<a class="side-part" href="#module-2"><span>MODULE 2</span><small>Strings · Tuples · Lists</small></a>
+<a class="side-topic" href="#m2-strings"><b>33</b><span>Strings: indexing, slicing & methods</span></a>
+<a class="side-topic" href="#m2-tuples"><b>34</b><span>Tuples & tuple assignment</span></a>
+<a class="side-topic" href="#m2-lists"><b>35</b><span>Lists, mutability & operations</span></a>
+<a class="side-topic" href="#m2-aliasing"><b>36</b><span>References, aliasing & cloning</span></a>
+<a class="side-topic" href="#m2-nested"><b>37</b><span>Nested lists & matrices</span></a>
+</div>
+</nav>
+</aside><main id="top"><section class="hero"><span class="eyebrow">PYTHON PROGRAMMING · 1BPLC105B / 205B</span><h1>Learn Python. Practise. Build.</h1><p>Welcome to the Python Learning Hub by Prof. Kiran Mudaraddi. Explore guided notes, understand code examples, practise concepts, and run your own Python programs.</p><div class="author-credit"><strong>Created and maintained by</strong><br/><span>Prof. Kiran Mudaraddi</span></div><div class="meta"><span class="pill">Interactive Notes</span><span class="pill">Practice &amp; Revision</span><span class="pill">Browser-based Python Runner</span></div><div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:22px"><a href="#python-runner" style="display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;background:var(--accent);color:white;font-weight:800;box-shadow:var(--shadow)">▶ Run Python Code</a><a href="#module-2" style="display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;border:1px solid var(--line);background:var(--card);font-weight:800">Explore Module 2 →</a><a href="#part-A" style="display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;border:1px solid var(--line);background:var(--card);font-weight:800">Start Module 1 →</a></div>
+<div style="margin-top:16px;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--card);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px"><div><strong style="display:block;font-size:1.05rem">New: Guided Python Learning Path</strong><span style="color:var(--muted)">Follow lesson checkpoints, practise, track progress, and complete a mini-project.</span></div><a href="#guided-learning-path" style="display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border-radius:10px;background:var(--accent);color:white;font-weight:800;text-decoration:none">Start learning path →</a></div>
+<div class="module-launcher" style="margin-top:34px">
+<h2 style="font-size:clamp(1.35rem,2.5vw,1.8rem);margin:0 0 8px">Python Programming Modules</h2>
+<p style="margin:0 0 18px;color:var(--muted)">Choose a module to open the notes. Modules 3–5 are being prepared and will be added soon.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:12px;text-align:left">
+<a href="#top" style="display:block;padding:17px;border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:var(--shadow)"><span style="font-size:.75rem;font-weight:800;color:var(--accent)">MODULE 1 · AVAILABLE</span><strong style="display:block;font-size:1.05rem;margin:5px 0">The Way of the Program</strong><span style="display:block;color:var(--muted);font-size:.9rem">Fundamentals, expressions, iteration and functions</span><span style="display:inline-block;margin-top:12px;color:var(--accent);font-weight:800">Open Module 1 →</span></a>
+<a href="#module-2" style="display:block;padding:17px;border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:var(--shadow)"><span style="font-size:.75rem;font-weight:800;color:var(--accent)">MODULE 2 · AVAILABLE</span><strong style="display:block;font-size:1.05rem;margin:5px 0">Strings, Tuples and Lists</strong><span style="display:block;color:var(--muted);font-size:.9rem">Work with strings and collections of data</span><span style="display:inline-block;margin-top:12px;color:var(--accent);font-weight:800">Open Module 2 →</span></a>
+<a href="#module-3" style="display:block;padding:17px;border:1px dashed var(--line);border-radius:16px;background:var(--bg);opacity:.88"><span style="font-size:.75rem;font-weight:800;color:var(--muted)">MODULE 3</span><strong style="display:block;font-size:1.05rem;margin:5px 0">Coming Soon</strong><span style="display:block;color:var(--muted);font-size:.9rem">Learning materials are under construction.</span><span style="display:inline-block;margin-top:12px;color:var(--muted);font-weight:800">Under construction</span></a>
+<a href="#module-4" style="display:block;padding:17px;border:1px dashed var(--line);border-radius:16px;background:var(--bg);opacity:.88"><span style="font-size:.75rem;font-weight:800;color:var(--muted)">MODULE 4</span><strong style="display:block;font-size:1.05rem;margin:5px 0">Coming Soon</strong><span style="display:block;color:var(--muted);font-size:.9rem">Learning materials are under construction.</span><span style="display:inline-block;margin-top:12px;color:var(--muted);font-weight:800">Under construction</span></a>
+<a href="#module-5" style="display:block;padding:17px;border:1px dashed var(--line);border-radius:16px;background:var(--bg);opacity:.88"><span style="font-size:.75rem;font-weight:800;color:var(--muted)">MODULE 5</span><strong style="display:block;font-size:1.05rem;margin:5px 0">Coming Soon</strong><span style="display:block;color:var(--muted);font-size:.9rem">Learning materials are under construction.</span><span style="display:inline-block;margin-top:12px;color:var(--muted);font-weight:800">Under construction</span></a>
+</div></div></section>
+<div class="content"><div class="box" style="margin-bottom:30px"><h3 style="margin-top:0">How to use this module</h3><p>Read each topic, run or copy the Python example, inspect the expected output, and answer the quick check. Use the search box to jump directly to a topic.</p></div>
+<section class="part" id="part-A"><div class="part-label">PART A</div><h2>The Way of the Program</h2><p class="part-intro"></p></section><article class="topic" id="topic-1"><div class="topic-num">1</div><div class="topic-main"><h3>The Python Programming Language</h3><div class="topic-question"><strong>How does Python turn instructions into actions that a computer can perform?</strong></div><p class="desc">Python is a high-level, user-friendly programming language. It is designed to be easy to read and write and is used for calculation, decision-making and data processing.</p><div class="diagram"><div class="diagram-title">How a Program Works</div><div class="flow"><div class="node">Input</div><div class="arrow">→</div><div class="node process">Process</div><div class="arrow">→</div><div class="node decision"> <span>Decision /<br/>Repetition</span></div><div class="arrow">→</div><div class="node">Output</div></div></div><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>print("Hello, Python!")
+print(2 + 3)</code></pre><div class="output"><b>Expected output</b><pre>Hello, Python!
+5</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-2"><div class="topic-num">2</div><div class="topic-main"><h3>What is a Program?</h3><div class="topic-question"><strong>How does a program give a computer a clear sequence of instructions to solve a task?</strong></div><p class="desc">A program is a set of instructions given to a computer to perform a specific task. Every program can be viewed through input, processing, decision/repetition and output.</p><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>name = input("Enter your name: ")
+print("Hello", name)</code></pre><div class="output"><b>Expected output</b><pre>Input → Process → Output</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-3"><div class="topic-num">3</div><div class="topic-main"><h3>What is Debugging?</h3><div class="topic-question"><strong>How does debugging help us find and correct a program that does not behave as expected?</strong></div><p class="desc">Debugging is the process of finding and fixing errors (bugs) in a program. A bug is a mistake that causes unexpected behaviour.</p><div class="diagram"><div class="diagram-title">From Problem to Python Code</div><div class="flow"><div class="node">Problem</div><div class="arrow">→</div><div class="node">Algorithm</div><div class="arrow">→</div><div class="node">Flowchart</div><div class="arrow">→</div><div class="node">Pseudocode</div><div class="arrow">→</div><div class="node">Python Code</div></div></div><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>x = 10
+y = 0
+# Try the program, observe the error, then identify the cause.
+print(x / y)</code></pre><div class="output"><b>Expected output</b><pre>The program stops with a runtime error.</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-4"><div class="topic-num">4</div><div class="topic-main"><h3>Syntax Errors</h3><div class="topic-question"><strong>How does Python detect a syntax error before a program can run?</strong></div><p class="desc">A syntax error occurs when Python cannot understand the code because the grammar rules of the language have been broken. Python stops before normal execution.</p><div class="diagram"><div class="diagram-title">How Python Code Runs</div><div class="flow"><div class="node">Source Code<br/><small>program.py</small></div><div class="arrow">→</div><div class="node">Bytecode<br/><small>.pyc</small></div><div class="arrow">→</div><div class="node">Python Virtual Machine<br/><small>PVM</small></div><div class="arrow">→</div><div class="node">Output</div></div></div><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>print("Hello"
+# Missing closing parenthesis</code></pre><div class="output"><b>Expected output</b><pre>SyntaxError</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-5"><div class="topic-num">5</div><div class="topic-main"><h3>Runtime Errors</h3><div class="topic-question"><strong>How does a runtime error occur while a Python program is running?</strong></div><p class="desc">A runtime error occurs while the program is running. Runtime errors are also called exceptions.</p><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>a = 5
+b = 0
+print(a / b)</code></pre><div class="output"><b>Expected output</b><pre>ZeroDivisionError</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-6"><div class="topic-num">6</div><div class="topic-main"><h3>Semantic Errors</h3><div class="topic-question"><strong>How does a semantic error produce the wrong result even when the program runs successfully?</strong></div><p class="desc">A semantic error occurs when a program runs but produces the wrong result because the logic is flawed. No error message may appear.</p><div class="diagram"><div class="diagram-title">Three Common Error Types</div><div class="flow"><div class="node">Syntax Error<br/><small>grammar / structure</small></div><div class="arrow">→</div><div class="node">Runtime Error<br/><small>during execution</small></div><div class="arrow">→</div><div class="node">Semantic Error<br/><small>wrong logic / output</small></div></div></div><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>length = 10
+width = 5
+area = length + width   # logic error
+print("Area:", area)</code></pre><div class="output"><b>Expected output</b><pre>Area: 15  (wrong result)</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-7"><div class="topic-num">7</div><div class="topic-main"><h3>Experimental Debugging</h3><div class="topic-question"><strong>How does experimental debugging help us test an idea about the cause of an error?</strong></div><p class="desc">Experimental debugging resembles the scientific method: form a hypothesis about the cause, change a small part, run the program again, and check whether the result supports the hypothesis.</p><div class="diagram"><div class="diagram-title">Experimental Debugging Cycle</div><div class="cycle"><div class="mini"><b>1. Observe</b>See the error or unexpected output.</div><div class="mini"><b>2. Hypothesize</b>Identify a possible cause.</div><div class="mini"><b>3. Change</b>Modify a small part.</div><div class="mini"><b>4. Run</b>Execute the program again.</div><div class="mini"><b>5. Check</b>Compare the result with the hypothesis.</div><div class="mini"><b>6. Repeat</b>Continue until the behavior is correct.</div></div></div><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>value = 5
+print("Before:", value)
+value = value * 2
+print("After:", value)</code></pre><div class="output"><b>Expected output</b><pre>Before: 5
+After: 10</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><section class="part" id="part-B"><div class="part-label">PART B</div><h2>Variables, Expressions and Statements</h2><p class="part-intro"></p></section><article class="topic" id="topic-8"><div class="topic-num">8</div><div class="topic-main"><h3>Values and Data Types</h3><div class="topic-question"><strong>How does Python represent different kinds of values such as numbers, text, and Boolean values?</strong></div><p class="desc">A value is a basic piece of data that a program manipulates. Common values in this module include integers, floating-point numbers and strings.</p><div class="diagram"><div class="diagram-title">Values and Data Types</div><div class="varbox"><div class="memory"><b>17</b><br/><small>int</small></div><div class="memory"><b>20.9</b><br/><small>float</small></div><div class="memory"><b>"welcome"</b><br/><small>str</small></div></div></div><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>print(type(17))
+print(type("Hello"))
+print(type(3.2))</code></pre><div class="output"><b>Expected output</b><pre>&lt;class 'int'&gt;
+&lt;class 'str'&gt;
+&lt;class 'float'&gt;</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-9"><div class="topic-num">9</div><div class="topic-main"><h3>Variables</h3><div class="topic-question"><strong>How does a variable connect a meaningful name with a value in a Python program?</strong></div><p class="desc">A variable is a name that stores a value, allowing a program to remember and reuse data. Python is dynamically typed, so a variable can refer to values of different types during execution.</p><div class="diagram"><div class="diagram-title">Variable as a Labelled Container</div><div class="varbox"><div class="memory"><b>n</b><br/><small>variable name</small></div><div class="pointer">→</div><div class="memory"><b>17</b><br/><small>value in memory</small></div></div></div><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>message = "Hello World"
+n = 17
+pi = 3.14159
+print(message, n, pi)</code></pre><div class="output"><b>Expected output</b><pre>Hello World 17 3.14159</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-10"><div class="topic-num">10</div><div class="topic-main"><h3>Variable Names and Keywords</h3><div class="topic-question"><strong>How does Python decide whether a name can be used as a variable name or is reserved as a keyword?</strong></div><p class="desc">Variable names may contain letters, digits and underscore; they must not start with a digit, are case-sensitive, cannot use special characters such as $, #, @, * and cannot be Python keywords.</p><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>student_marks = 85
+Student_marks = 90
+print(student_marks)
+print(Student_marks)</code></pre><div class="output"><b>Expected output</b><pre>85
+90</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-11"><div class="topic-num">11</div><div class="topic-main"><h3>Statements</h3><div class="topic-question"><strong>How does a statement tell Python to perform an action?</strong></div><p class="desc">A statement is an instruction that the Python interpreter can execute. Assignment, conditional and loop statements are examples.</p><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>x = 10
+if x &gt; 0:
+    print("positive")</code></pre><div class="output"><b>Expected output</b><pre>positive</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-12"><div class="topic-num">12</div><div class="topic-main"><h3>Evaluating Expressions</h3><div class="topic-question"><strong>How does Python evaluate an expression to produce a value?</strong></div><p class="desc">An expression is a combination of values, variables, operators and functions that produces a result. Evaluating an expression always produces a value.</p><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>print(1 + 1)
+print(len("Hello"))</code></pre><div class="output"><b>Expected output</b><pre>2
+5</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-13"><div class="topic-num">13</div><div class="topic-main"><h3>Operators and Operands</h3><div class="topic-question"><strong>How do operators work with operands to produce a result?</strong></div><p class="desc">Operators are special tokens representing computations. Operands are the values on which an operator acts.</p><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>a = 10
+b = 3
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
+print(a // b)
+print(a ** b)</code></pre><div class="output"><b>Expected output</b><pre>13
+7
+30
+3.333...
+3
+1000</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-14"><div class="topic-num">14</div><div class="topic-main"><h3>Type Converter Functions</h3><div class="topic-question"><strong>How do type converter functions change a value from one data type to another?</strong></div><p class="desc">Type converters change a value from one type to another when the conversion is valid. The module uses int() and float() especially with input().</p><div class="diagram"><div class="diagram-title">Operator and Operands</div><div class="flow"><div class="node">5<br/><small>operand</small></div><div class="node process">+<br/><small>operator</small></div><div class="node">3<br/><small>operand</small></div><div class="arrow">→</div><div class="node">8<br/><small>result</small></div></div></div><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>print(int(3.14))
+print(int("2346"))
+print(float("3.5"))</code></pre><div class="output"><b>Expected output</b><pre>3
+2346
+3.5</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-15"><div class="topic-num">15</div><div class="topic-main"><h3>Order of Operations</h3><div class="topic-question"><strong>How does the order of operations determine which part of an expression Python evaluates first?</strong></div><p class="desc">Python follows operator precedence. Parentheses can force the order. Arithmetic expressions follow the familiar PEMDAS-style ordering; exponentiation is right-associative.</p><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>print(5 + 4 * 3)
+print((5 + 4) * 3)
+print(5 + 4 ** 2)
+print(2 ** 3 ** 2)</code></pre><div class="output"><b>Expected output</b><pre>17
+27
+21
+512</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-16"><div class="topic-num">16</div><div class="topic-main"><h3>Operations on Strings</h3><div class="topic-question"><strong>How does Python let us combine, repeat, compare, and access characters in strings?</strong></div><p class="desc">Strings support operations such as concatenation with + and repetition with *. Arithmetic mixing between strings and numbers is not valid without conversion.</p><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>fruit = "banana"
+baked_good = "nut bread"
+print(fruit + baked_good)
+print("fun" * 3)</code></pre><div class="output"><b>Expected output</b><pre>banananut bread
+funfunfun</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-17"><div class="topic-num">17</div><div class="topic-main"><h3>Input</h3><div class="topic-question"><strong>How does input() bring information from the user into a Python program?</strong></div><p class="desc">input() gets input from the user and always returns a string.</p><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>name = input("Enter your name: ")
+print("Hello", name)</code></pre><div class="output"><b>Expected output</b><pre>Enter your name: Rahul
+Hello Rahul</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-18"><div class="topic-num">18</div><div class="topic-main"><h3>Composition</h3><div class="topic-question"><strong>How does composition help us build a larger expression from smaller expressions and values?</strong></div><p class="desc">Composition means taking small building blocks and combining them into larger chunks. Python expressions can be built step by step or composed in a single line.</p><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>r = float(input("What is your radius? "))
+print("Area is", 3.14159 * r ** 2)</code></pre><div class="output"><b>Expected output</b><pre>Area is ...</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-19"><div class="topic-num">19</div><div class="topic-main"><h3>The Modulus Operator</h3><div class="topic-question"><strong>How does the modulus operator help us find a remainder and solve practical problems?</strong></div><p class="desc">% gives the remainder after division. It is useful for checking divisibility, finding digits and converting time.</p><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>print(7 % 3)
+print(10 % 2)
+print(17 % 10)</code></pre><div class="output"><b>Expected output</b><pre>1
+0
+7</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><section class="part" id="part-C"><div class="part-label">PART C</div><h2>Iteration</h2><p class="part-intro"></p></section><article class="topic" id="topic-20"><div class="topic-num">20</div><div class="topic-main"><h3>Assignment</h3><div class="topic-question"><strong>How does assignment give a variable its value?</strong></div><p class="desc">Assignment stores a value in a variable using =. It is different from equality testing, which uses ==.</p><div class="diagram"><div class="diagram-title">Choosing <code>for</code> or <code>while</code></div><div class="loopbox"><div class="mini"><b>for loop</b>Use when the sequence or number of repetitions is known.</div><div class="mini"><b>while loop</b>Use when repetition depends on a condition.</div></div></div><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>num = 15
+print(num)
+a = 7
+print(a == 7)</code></pre><div class="output"><b>Expected output</b><pre>15
+True</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-21"><div class="topic-num">21</div><div class="topic-main"><h3>Updating Variables</h3><div class="topic-question"><strong>How does updating a variable allow a program to keep track of changing information?</strong></div><p class="desc">A variable can use its old value to compute a new value. Shorthand operators such as += and -= provide compact updates.</p><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>n = 5
+n = 3 * n + 1
+print(n)
+x = 10
+x += 1
+print(x)</code></pre><div class="output"><b>Expected output</b><pre>16
+11</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-22"><div class="topic-num">22</div><div class="topic-main"><h3>The for Loop</h3><div class="topic-question"><strong>How does a for loop repeat a set of statements for each value in a sequence?</strong></div><p class="desc">The for loop traverses each item in a sequence and is ideal for definite iteration when the number of repetitions is known.</p><div class="diagram"><div class="diagram-title">Collatz 3n + 1 Sequence — n = 12</div><div class="flow"><div class="node">12</div><div class="arrow">→</div><div class="node">6</div><div class="arrow">→</div><div class="node">3</div><div class="arrow">→</div><div class="node">10</div><div class="arrow">→</div><div class="node">5</div><div class="arrow">→</div><div class="node">16</div><div class="arrow">→</div><div class="node">8</div><div class="arrow">→</div><div class="node">4</div><div class="arrow">→</div><div class="node">2</div><div class="arrow">→</div><div class="node">1</div></div></div><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>numbers = [10, 20, 30, 40, 50]
+total = 0
+for num in numbers:
+    total += num
+print(total)</code></pre><div class="output"><b>Expected output</b><pre>150</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-23"><div class="topic-num">23</div><div class="topic-main"><h3>The while Statement</h3><div class="topic-question"><strong>How does a while statement keep repeating until its condition becomes false?</strong></div><p class="desc">The while statement is used for indefinite iteration. It repeats while a condition is true and requires a loop-control update so the condition can eventually become false.</p><div class="diagram"><div class="diagram-title">Nested Loop / Two-Dimensional Table</div><div class="matrix"><span>1 × 1</span><span>1 × 2</span><span>1 × 3</span><span>1 × 4</span><span>2 × 1</span><span>2 × 2</span><span>2 × 3</span><span>2 × 4</span><span>3 × 1</span><span>3 × 2</span><span>3 × 3</span><span>3 × 4</span></div></div><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>n = 6
+sum = 0
+i = 0
+while i &lt;= n:
+    sum += i
+    i += 1
+print("Sum is", sum)</code></pre><div class="output"><b>Expected output</b><pre>Sum is 21</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-24"><div class="topic-num">24</div><div class="topic-main"><h3>The Collatz 3n + 1 Sequence</h3><div class="topic-question"><strong>How does the Collatz rule use repetition and decisions to transform a number until it reaches 1?</strong></div><p class="desc">Start with a positive integer n. If n is even, replace it with n//2; if n is odd, replace it with 3*n+1. Repeat until n reaches 1.</p><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>n = 12
+steps = 0
+while n != 1:
+    print(n, end=", ")
+    if n % 2 == 0:
+        n = n // 2
+    else:
+        n = 3 * n + 1
+    steps += 1
+print(n)
+print("Total steps:", steps)</code></pre><div class="output"><b>Expected output</b><pre>12, 6, 3, 10, 5, 16, 8, 4, 2, 1
+Total steps: 9</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-25"><div class="topic-num">25</div><div class="topic-main"><h3>Tables</h3><div class="topic-question"><strong>How does a loop generate a complete table without writing each line separately?</strong></div><p class="desc">Loops can systematically generate tables. The notes use loops to generate powers and multiplication-related sequences.</p><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>for x in range(13):
+    print(x, "\t", 2 ** x)</code></pre><div class="output"><b>Expected output</b><pre>0 1
+1 2
+2 4
+...
+12 4096</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-26"><div class="topic-num">26</div><div class="topic-main"><h3>Two-Dimensional Tables</h3><div class="topic-question"><strong>How do nested loops build a two-dimensional table using rows and columns?</strong></div><p class="desc">Nested loops can generate data arranged by rows and columns. The inner loop completes the work for each outer-loop item.</p><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>for row in range(1, 4):
+    for col in range(1, 5):
+        print(row * col, end="\t")
+    print()</code></pre><div class="output"><b>Expected output</b><pre>1 2 3 4
+2 4 6 8
+3 6 9 12</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-27"><div class="topic-num">27</div><div class="topic-main"><h3>break Statement</h3><div class="topic-question"><strong>How does break change the normal flow of a loop when a desired condition is reached?</strong></div><p class="desc">break immediately exits the loop, even if the loop would otherwise continue.</p><div class="diagram"><div class="diagram-title">Paired Data and Nested Data</div><div class="fnflow"><div class="node">Student</div><div class="arrow">→</div><div class="node">(Name, Subjects)</div><div class="arrow">→</div><div class="node">Inner loop<br/>checks subjects</div><div class="arrow">→</div><div class="node">Count / Output</div></div></div><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>for i in [12, 14, 17, 22, 19]:
+    if i % 2 == 1:
+        break
+    print(i)
+print("done")</code></pre><div class="output"><b>Expected output</b><pre>12
+14
+done</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-28"><div class="topic-num">28</div><div class="topic-main"><h3>continue Statement</h3><div class="topic-question"><strong>How does continue skip the current iteration and move directly to the next one?</strong></div><p class="desc">continue skips the rest of the current iteration and moves to the next iteration.</p><div class="diagram"><div class="diagram-title">Function: Arguments → Processing → Return Value</div><div class="fnflow"><div class="node">Arguments<br/><small>20, 20, 18</small></div><div class="arrow">→</div><div class="node process">Function<br/><small>find_average()</small></div><div class="arrow">→</div><div class="node">Return Value<br/><small>19.33...</small></div></div></div><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>for i in [12, 16, 17, 24, 29, 30]:
+    if i % 2 == 1:
+        continue
+    print(i)</code></pre><div class="output"><b>Expected output</b><pre>12
+16
+24
+30</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-29"><div class="topic-num">29</div><div class="topic-main"><h3>Paired Data</h3><div class="topic-question"><strong>How does paired data keep related values together so they can be processed as one unit?</strong></div><p class="desc">Related information can be grouped into tuples. The notes demonstrate paired data such as a name together with a year.</p><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>celebs = [("Amal", 1990), ("Akbar", 1993), ("Anthony", 1985)]
+for name, year in celebs:
+    if year &lt; 1990:
+        print(name)</code></pre><div class="output"><b>Expected output</b><pre>Anthony</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-30"><div class="topic-num">30</div><div class="topic-main"><h3>Nested Loops for Nested Data</h3><div class="topic-question"><strong>How do nested loops help us process data that is itself organized in nested structures?</strong></div><p class="desc">Nested loops are useful when data itself contains nested structures, such as a student paired with a list of subjects.</p><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>students = [("John", ["CompSci", "Physics"]),
+            ("Vusi", ["Maths", "CompSci", "Stats"]),
+            ("Jess", ["CompSci", "Accounting"])]
+count = 0
+for name, subjects in students:
+    for s in subjects:
+        if s == "CompSci":
+            count += 1
+print(count)</code></pre><div class="output"><b>Expected output</b><pre>3</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><section class="part" id="part-D"><div class="part-label">PART D</div><h2>Functions</h2><p class="part-intro"></p></section><article class="topic" id="topic-31"><div class="topic-num">31</div><div class="topic-main"><h3>Functions with Arguments</h3><div class="topic-question"><strong>How do function arguments allow the same function to work with different values?</strong></div><p class="desc">A function is a named sequence of statements. Parameters are names in the function definition; arguments are the actual values passed when the function is called.</p><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>def find_average(num1, num2, num3):
+    avg = (num1 + num2 + num3) / 3
+    return avg
+
+result = find_average(20, 20, 18)
+print(result)</code></pre><div class="output"><b>Expected output</b><pre>19.333333333333332</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article><article class="topic" id="topic-32"><div class="topic-num">32</div><div class="topic-main"><h3>Return Values</h3><div class="topic-question"><strong>How does a return value carry a result from a function back to the part of the program that called it?</strong></div><p class="desc">A return statement sends a result from a function back to the caller. A function without a return value returns None by default.</p><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>def square(n):
+    return n * n
+
+answer = square(6)
+print(answer)</code></pre><div class="output"><b>Expected output</b><pre>36</pre></div></div><div class="checkpoint"><b>Try it</b><span>Change one part of the example, run it, and explain the result in your own words.</span></div></div></article>
+
+<section class="interactive-lab" id="module-1-interactive" aria-labelledby="module-1-interactive-title">
+  <div class="lab-kicker">Active learning · Module 1</div>
+  <h2 id="module-1-interactive-title">Predict the Output &amp; Debug</h2>
+  <p class="lab-intro">Try to work out the result before opening each answer. Read the explanation, then test the code in the Python Runner.</p>
+  <div class="activity-grid">
+    <article class="activity-card"><span class="activity-type">Predict the output</span><h3>1. Expressions</h3><p>What will this program print?</p><pre><code>x = 5
+print(x + 2 * 3)</code></pre><details><summary>Reveal answer &amp; explanation</summary><div class="activity-answer"><strong>Output: 11</strong><p>Multiplication happens before addition: 2 × 3 = 6, then 5 + 6 = 11.</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Predict the output</span><h3>2. Loop and range</h3><p>What is printed?</p><pre><code>for i in range(1, 4):
+    print(i, end=" ")</code></pre><details><summary>Reveal answer &amp; explanation</summary><div class="activity-answer"><strong>Output: 1 2 3</strong><p>The stop value 4 is excluded, so the loop visits 1, 2 and 3.</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Debugging challenge</span><h3>3. Find the error</h3><p>The program should print the area of a rectangle. What must change?</p><pre><code>length = 8
+width = 3
+area = length + width
+print(area)</code></pre><details><summary>Reveal fix &amp; explanation</summary><div class="activity-answer"><strong>Fix: <code>area = length * width</code></strong><p>Rectangle area is length multiplied by width, so the correct output is 24. The original code runs but uses the wrong logic (a semantic error).</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Predict the output</span><h3>4. Type conversion</h3><p>What is printed?</p><pre><code>a = "7"
+b = int(a) + 2
+print(b)</code></pre><details><summary>Reveal answer &amp; explanation</summary><div class="activity-answer"><strong>Output: 9</strong><p><code>int(a)</code> converts the string "7" to the integer 7, then 2 is added.</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Predict the output</span><h3>5. Modulus operator</h3><p>What does the expression return?</p><pre><code>print(17 % 5)</code></pre><details><summary>Reveal answer &amp; explanation</summary><div class="activity-answer"><strong>Output: 2</strong><p>The modulus operator returns the remainder. 17 divided by 5 leaves remainder 2.</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Predict the output</span><h3>6. Updating variables</h3><p>Track the value of <code>x</code>.</p><pre><code>x = 4
+x = x + 3
+x = x * 2
+print(x)</code></pre><details><summary>Reveal answer &amp; explanation</summary><div class="activity-answer"><strong>Output: 14</strong><p>First x becomes 7, then 7 is multiplied by 2 to become 14.</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Predict the output</span><h3>7. While loop</h3><p>How many values are printed?</p><pre><code>n = 3
+while n > 0:
+    print(n, end=" ")
+    n -= 1</code></pre><details><summary>Reveal answer &amp; explanation</summary><div class="activity-answer"><strong>Output: 3 2 1</strong><p>The loop repeats while n is greater than zero. It prints 3, 2, and 1 before stopping at 0.</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Predict the output</span><h3>8. String repetition</h3><p>What is displayed?</p><pre><code>word = "Py"
+print(word * 3)</code></pre><details><summary>Reveal answer &amp; explanation</summary><div class="activity-answer"><strong>Output: PyPyPy</strong><p>Multiplying a string by an integer repeats the string that many times.</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Debugging challenge</span><h3>9. Fix the syntax</h3><p>Correct the code so it prints Hello.</p><pre><code>if True
+    print("Hello")</code></pre><details><summary>Reveal fix &amp; explanation</summary><div class="activity-answer"><strong>Fix: add a colon after <code>True</code>.</strong><pre><code>if True:
+    print("Hello")</code></pre><p>A compound statement such as <code>if</code> requires a colon before its indented block.</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Debugging challenge</span><h3>10. Fix the input calculation</h3><p>The program should add two numbers entered by the user. Find the issue.</p><pre><code>a = input("First: ")
+b = input("Second: ")
+print(a + b)</code></pre><details><summary>Reveal fix &amp; explanation</summary><div class="activity-answer"><strong>Fix: convert inputs to numbers.</strong><pre><code>a = int(input("First: "))
+b = int(input("Second: "))
+print(a + b)</code></pre><p><code>input()</code> returns text. Without conversion, values such as "2" and "3" are joined as "23".</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Predict the output</span><h3>11. Continue in a loop</h3><p>Which numbers are printed?</p><pre><code>for n in range(1, 6):
+    if n == 3:
+        continue
+    print(n, end=" ")</code></pre><details><summary>Reveal answer &amp; explanation</summary><div class="activity-answer"><strong>Output: 1 2 4 5</strong><p><code>continue</code> skips the remaining statements for the current iteration when n is 3.</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Debugging challenge</span><h3>12. Fix the infinite loop</h3><p>Why does this loop never reach 5?</p><pre><code>n = 1
+while n < 5:
+    print(n)</code></pre><details><summary>Reveal fix &amp; explanation</summary><div class="activity-answer"><strong>Fix: update n inside the loop.</strong><pre><code>n = 1
+while n < 5:
+    print(n)
+    n += 1</code></pre><p>The loop condition stays true if n never changes. Incrementing n allows the loop to finish.</p></div></details></article>
+
+  </div>
+</section>
+<section class="python-runner" id="python-runner">
+<div class="runner-card">
+  <div class="runner-head">
+    <div class="runner-heading">
+      <div class="runner-python-badge">🐍</div>
+      <div>
+        <h2>Python Runner</h2>
+        <p>Learn by writing, running and experimenting with Python.</p>
+      </div>
+    </div>
+    <div class="runner-subbar">
+      <span>Interactive browser-based Python</span>
+      <span class="runner-engine">Python ready</span>
+    </div>
+  </div>
+
+  <div class="runner-main">
+    <div class="runner-code-shell">
+      <div class="runner-code-top">
+        <div class="runner-file-name"><span class="runner-py-dot"></span>main.py</div>
+        <div class="runner-code-tools">
+          <button class="runner-mini-btn" type="button" onclick="copyPythonCode()">Copy</button>
+          <button class="runner-mini-btn" type="button" onclick="loadPythonExample()">Example</button>
+        </div>
+      </div>
+      <div class="runner-editor">
+        <div class="runner-lines" id="pythonLineNumbers" aria-hidden="true"></div>
+        <textarea id="pythonCode" class="runner-code" spellcheck="false" wrap="off" aria-label="Python code editor">name = input("Enter your name: ")
+print("Hello", name)</textarea>
+      </div>
+    </div>
+    <div class="runner-tip">💡 Change the code and run it again to observe how the output changes.</div>
+
+    <div class="runner-io">
+      <div class="runner-panel">
+        <label class="runner-label" for="pythonInput">⌨ Input <small>one value per line</small></label>
+        <textarea id="pythonInput" class="runner-input" spellcheck="false" placeholder="Enter input values...">Kiran</textarea>
+      </div>
+      <div class="runner-panel runner-output">
+        <div class="runner-label">▶ Output <small>program result</small></div>
+        <pre id="pythonOutput">Ready. Click “Run Python”.</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="runner-actions">
+    <button class="runner-btn primary" type="button" onclick="runPythonCode()">▶ Run Python</button>
+    <button class="runner-btn secondary" type="button" onclick="loadPythonExample()">💡 Load Example</button>
+    <button class="runner-btn secondary" type="button" onclick="copyPythonCode()">📋 Copy Code</button>
+    <button class="runner-btn secondary" type="button" onclick="clearPythonRunner()">↻ Reset</button>
+  </div>
+  <div class="runner-status" id="pythonStatus">Python engine will load when you first run a program.</div>
+</div>
+</section>
+<section class="part" id="practice"><div class="part-label">PRACTICE</div><h2>Solved Practice Programs</h2><p class="part-intro">Additional programs from the notes that combine Module 1 concepts.</p><div class="practice-list"><details class="practice"><summary>Swap Two Variables</summary><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>a = int(input("Enter a: "))
+b = int(input("Enter b: "))
+a, b = b, a
+print("After swap: a =", a, "b =", b)</code></pre><div class="output"><b>Expected output</b><pre>Run the program with your own input.</pre></div></div></details><details class="practice"><summary>Temperature Converter</summary><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>celsius = float(input("Enter temperature in Celsius: "))
+fahrenheit = (celsius * 9 / 5) + 32
+print("Temperature in Fahrenheit is", fahrenheit)</code></pre><div class="output"><b>Expected output</b><pre>Run the program with your own input.</pre></div></div></details><details class="practice"><summary>Simple Interest</summary><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>principal = float(input("Enter principal amount: "))
+rate = float(input("Enter rate of interest (%): "))
+time = float(input("Enter time period (years): "))
+si = (principal * rate * time) / 100
+print("Simple Interest is", si)</code></pre><div class="output"><b>Expected output</b><pre>Run the program with your own input.</pre></div></div></details><details class="practice"><summary>Leap Year</summary><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>year = int(input("Enter a year: "))
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    print(year, "is a Leap Year")
+else:
+    print(year, "is Not a Leap Year")</code></pre><div class="output"><b>Expected output</b><pre>Run the program with your own input.</pre></div></div></details><details class="practice"><summary>Multiplication Table</summary><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>num = int(input("Enter a number: "))
+for i in range(1, 11):
+    print(num, "x", i, "=", num * i)</code></pre><div class="output"><b>Expected output</b><pre>Run the program with your own input.</pre></div></div></details><details class="practice"><summary>Star Pattern</summary><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>rows = int(input("Enter number of rows: "))
+for i in range(1, rows + 1):
+    for j in range(i):
+        print("*", end="")
+    print()</code></pre><div class="output"><b>Expected output</b><pre>Run the program with your own input.</pre></div></div></details><details class="practice"><summary>Factorial</summary><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>num = int(input("Enter a number: "))
+fact = 1
+for i in range(1, num + 1):
+    fact *= i
+print("Factorial is", fact)</code></pre><div class="output"><b>Expected output</b><pre>Run the program with your own input.</pre></div></div></details><details class="practice"><summary>Fibonacci</summary><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>n = int(input("Enter number of terms: "))
+a, b = 0, 1
+for i in range(n):
+    print(a, end=" ")
+    a, b = b, a + b</code></pre><div class="output"><b>Expected output</b><pre>Run the program with your own input.</pre></div></div></details><details class="practice"><summary>Prime Check</summary><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>num = int(input("Enter a number: "))
+is_prime = True
+if num &lt; 2:
+    is_prime = False
+else:
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            is_prime = False
+            break
+print(num, "is Prime" if is_prime else "is Not Prime")</code></pre><div class="output"><b>Expected output</b><pre>Run the program with your own input.</pre></div></div></details><details class="practice"><summary>Reverse Digits</summary><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>num = int(input("Enter a number: "))
+reverse = 0
+temp = num
+while temp &gt; 0:
+    digit = temp % 10
+    reverse = reverse * 10 + digit
+    temp //= 10
+print("Reversed number is", reverse)</code></pre><div class="output"><b>Expected output</b><pre>Run the program with your own input.</pre></div></div></details><details class="practice"><summary>Senior Citizen Check</summary><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>name = input("Enter your name: ")
+birth_year = int(input("Enter your year of birth: "))
+age = 2026 - birth_year
+if age &gt;= 60:
+    print(name, "is a Senior Citizen")
+else:
+    print(name, "is not a Senior Citizen")</code></pre><div class="output"><b>Expected output</b><pre>Run the program with your own input.</pre></div></div></details><details class="practice"><summary>Mean / Variance / Standard Deviation</summary><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>n = int(input("Enter how many numbers: "))
+numbers = []
+for i in range(n):
+    numbers.append(float(input("Enter number: ")))
+mean = sum(numbers) / n
+squared_diff_sum = 0
+for x in numbers:
+    squared_diff_sum += (x - mean) ** 2
+variance = squared_diff_sum / n
+std_dev = variance ** 0.5
+print("Mean:", mean)
+print("Variance:", variance)
+print("Standard Deviation:", std_dev)</code></pre><div class="output"><b>Expected output</b><pre>Run the program with your own input.</pre></div></div></details><details class="practice"><summary>Digit Frequency</summary><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>num_str = input("Enter a multi-digit number: ")
+for digit in "0123456789":
+    count = 0
+    for ch in num_str:
+        if ch == digit:
+            count += 1
+    if count &gt; 0:
+        print("Digit", digit, "occurs", count, "time(s)")</code></pre><div class="output"><b>Expected output</b><pre>Run the program with your own input.</pre></div></div></details><details class="practice"><summary>Armstrong Number</summary><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>num = int(input("Enter a number: "))
+temp = num
+num_digits = len(str(num))
+total = 0
+while temp &gt; 0:
+    digit = temp % 10
+    total += digit ** num_digits
+    temp //= 10
+print(num, "is an Armstrong number" if total == num else "is not an Armstrong number")</code></pre><div class="output"><b>Expected output</b><pre>Run the program with your own input.</pre></div></div></details><details class="practice"><summary>GCD / HCF</summary><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+gcd = 1
+for i in range(1, min(a, b) + 1):
+    if a % i == 0 and b % i == 0:
+        gcd = i
+print("GCD is", gcd)</code></pre><div class="output"><b>Expected output</b><pre>Run the program with your own input.</pre></div></div></details><details class="practice"><summary>Palindrome Number</summary><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>num = int(input("Enter a number: "))
+temp = num
+reverse = 0
+while temp &gt; 0:
+    digit = temp % 10
+    reverse = reverse * 10 + digit
+    temp //= 10
+print(num, "is a Palindrome" if reverse == num else "is Not a Palindrome")</code></pre><div class="output"><b>Expected output</b><pre>Run the program with your own input.</pre></div></div></details><details class="practice"><summary>Menu-Driven Calculator</summary><div class="code-card"><div class="code-head"><i aria-hidden="true" class="traffic"></i><span>Python</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>def calculate(n1, n2, choice):
+    if choice == 1: return n1 + n2
+    elif choice == 2: return n1 - n2
+    elif choice == 3: return n1 * n2
+    elif choice == 4: return n1 / n2
+    return None
+
+n1 = float(input("Enter first number: "))
+n2 = float(input("Enter second number: "))
+choice = int(input("1-Add 2-Subtract 3-Multiply 4-Divide: "))
+result = calculate(n1, n2, choice)
+print("Result is", result if result is not None else "Invalid choice")</code></pre><div class="output"><b>Expected output</b><pre>Run the program with your own input.</pre></div></div></details></div></section>
+<section class="part appendix"><div class="part-label">APPENDIX</div><h2>Quick Revision &amp; Good Practices</h2><div class="grid"><div class="box"><h4>Remember</h4><ul class="checklist"><li>Program = instructions for a task.</li><li>Debugging = finding and fixing bugs.</li><li>Syntax, runtime and semantic errors are different.</li><li>Expressions produce values.</li><li>= assigns; == compares.</li><li>for is useful for definite iteration.</li><li>while repeats while a condition is true.</li><li>break exits; continue skips.</li><li>Paired data can be grouped in tuples.</li><li>Functions can receive arguments and return values.</li></ul></div><div class="box"><h4>Do</h4><ul class="checklist"><li>Use meaningful variable and function names.</li><li>Follow snake_case.</li><li>Use comments to explain why.</li><li>Keep 4-space indentation consistent.</li><li>Break large problems into small functions.</li><li>Test edge cases.</li></ul></div><div class="box"><h4>Don't</h4><ul class="checklist"><li>Don't use vague names unnecessarily.</li><li>Don't use unexplained magic numbers.</li><li>Don't mix tabs and spaces.</li><li>Don't write overly long functions.</li><li>Don't ignore error messages.</li></ul></div></div></section></div></main></div>
+<section class="assessment-wrap" id="assessment">
+<div class="assessment-hero"><h2>Module 1 — Question Bank &amp; Quiz</h2><p>FA1 submission portal for Section M & N students, followed by 100 practice questions and the 6-mark individual quiz (12 questions).</p><p><strong>Coverage:</strong> The Way of the Program · Variables, Expressions &amp; Statements · Iteration · Functions</p></div>
+<div class="fa1-portal" id="fa1Portal">
+  <div class="fa1-head">
+    <div><span class="fa1-badge">FA1 · 20 MARKS</span><h2>FA1 Submission Portal</h2><p>Project Team <strong>7 marks</strong> · Presentation <strong>7 marks</strong> · Individual Quiz <strong>6 marks</strong></p></div>
+    <div class="fa1-lock" id="fa1Lock">🔒 M &amp; N Sections Only</div>
+  </div>
+  <div class="fa1-note"><strong>Example:</strong> A team develops a <em>Shop Management System</em>. Submit the project report as a Word file, the presentation as a PowerPoint file, and complete the individual 6-mark quiz (12 questions).</div>
+  <div class="student-details fa1-student-details">
+    <label>Student Name<input id="studentName" type="text" autocomplete="name" placeholder="Enter your full name" required></label>
+    <label>USN / Student ID<input id="studentUSN" type="text" autocomplete="off" placeholder="Enter your USN" required></label>
+    <label>Section<select id="studentSection" required><option value="">Select section</option><option value="M">M</option><option value="N">N</option></select></label>
+  </div>
+  <div class="access-message" id="accessMessage">Enter your Name, USN and select <strong>M</strong> or <strong>N</strong> to unlock FA1.</div>
+  <div class="fa1-grid">
+    <div class="fa1-card">
+      <div class="fa1-card-top"><span class="mark-badge">7 MARKS</span><span>📄</span></div>
+      <h3>1 · Project Team Submission</h3>
+      <p>Upload your team's <strong>Project Report / Proposal</strong> in Word format.</p>
+      <div class="fa1-example"><strong>Example:</strong> Shop Management System — problem statement, objectives, requirements, algorithm/design, Python solution and testing.</div>
+      <ul><li>Accepted: <strong>.doc / .docx</strong></li><li>One submission per team</li><li>Maximum file size: 10 MB</li></ul>
+      <input id="projectFile" class="file-input" type="file" accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+      <button class="fa1-upload-btn" id="projectUploadBtn" type="button" onclick="uploadFA1File('project')" disabled>Upload Project · 7 Marks</button>
+      <div class="upload-status" id="projectStatus"></div>
+    </div>
+    <div class="fa1-card">
+      <div class="fa1-card-top"><span class="mark-badge">7 MARKS</span><span>📊</span></div>
+      <h3>2 · Presentation Submission</h3>
+      <p>Upload your team's <strong>FA1 Presentation</strong> in PowerPoint format.</p>
+      <div class="fa1-example"><strong>Example:</strong> 6–8 slides covering problem, objectives, solution, Python approach, output/demo, team contribution and conclusion.</div>
+      <ul><li>Accepted: <strong>.ppt / .pptx</strong></li><li>One submission per team</li><li>Maximum file size: 15 MB</li></ul>
+      <input id="presentationFile" class="file-input" type="file" accept=".ppt,.pptx,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation">
+      <button class="fa1-upload-btn" id="presentationUploadBtn" type="button" onclick="uploadFA1File('presentation')" disabled>Upload PPT · 7 Marks</button>
+      <div class="upload-status" id="presentationStatus"></div>
+    </div>
+    <div class="fa1-card quiz-card-link">
+      <div class="fa1-card-top"><span class="mark-badge">6 MARKS</span><span>🎯</span></div>
+      <h3>3 · Individual Quiz</h3>
+      <p>Complete the <strong>12-question Module 1 quiz</strong>. Each question carries 0.5 mark.</p>
+      <div class="fa1-example"><strong>Important:</strong> The quiz is individual. Your Name, USN and Section are recorded with the result.</div>
+      <button class="fa1-upload-btn" type="button" onclick="openSecureQuiz()">🔐 Take Secure 6-Mark Quiz →</button>
+      <div class="quiz-mini">Quiz: 12 questions × 0.5 mark = <strong>6 marks</strong></div>
+    </div>
+  </div>
+  <div class="fa1-submission-rule"><strong>Submission rule:</strong> Only students from <strong>Section M or Section N</strong> can unlock this portal. For stronger control, the Google Apps Script backend should also verify the official M/N USN list before accepting a file or quiz result.</div>
+</div><h3 class="q-section">100 Practice Questions</h3><div class="question-bank"><div class="q-item"><span class="q-num">1.</span>What is a program?</div><div class="q-item"><span class="q-num">2.</span>What is meant by a sequence of instructions in programming?</div><div class="q-item"><span class="q-num">3.</span>List the basic building blocks of a program.</div><div class="q-item"><span class="q-num">4.</span>What is meant by input in a program?</div><div class="q-item"><span class="q-num">5.</span>What is meant by output in a program?</div><div class="q-item"><span class="q-num">6.</span>What is conditional execution?</div><div class="q-item"><span class="q-num">7.</span>What is repetition in a program?</div><div class="q-item"><span class="q-num">8.</span>What is mathematical computation? Give one example.</div><div class="q-item"><span class="q-num">9.</span>What is symbolic computation? Give one example.</div><div class="q-item"><span class="q-num">10.</span>What is a high-level programming language?</div><div class="q-item"><span class="q-num">11.</span>What is a low-level programming language?</div><div class="q-item"><span class="q-num">12.</span>How does assembly language differ from a high-level language?</div><div class="q-item"><span class="q-num">13.</span>State two advantages of high-level programming languages.</div><div class="q-item"><span class="q-num">14.</span>What are the three main problem-solving tools introduced in Module 1?</div><div class="q-item"><span class="q-num">15.</span>List the characteristics of a good algorithm.</div><div class="q-item"><span class="q-num">16.</span>What is a flowchart?</div><div class="q-item"><span class="q-num">17.</span>What is a syntax error?</div><div class="q-item"><span class="q-num">18.</span>What is a runtime error?</div><div class="q-item"><span class="q-num">19.</span>What is a semantic error?</div><div class="q-item"><span class="q-num">20.</span>What is experimental debugging?</div><div class="q-item"><span class="q-num">21.</span>What is a value in Python?</div><div class="q-item"><span class="q-num">22.</span>Name three basic Python data types discussed in Module 1.</div><div class="q-item"><span class="q-num">23.</span>What data type is the value 20?</div><div class="q-item"><span class="q-num">24.</span>What data type is the value 20.9?</div><div class="q-item"><span class="q-num">25.</span>What data type is the value "welcome"?</div><div class="q-item"><span class="q-num">26.</span>What is a string?</div><div class="q-item"><span class="q-num">27.</span>What are the three ways of writing strings shown in the notes?</div><div class="q-item"><span class="q-num">28.</span>What is the purpose of triple-quoted strings?</div><div class="q-item"><span class="q-num">29.</span>What does the escape sequence \n do?</div><div class="q-item"><span class="q-num">30.</span>What does the escape sequence \t do?</div><div class="q-item"><span class="q-num">31.</span>What does the escape sequence \\ represent?</div><div class="q-item"><span class="q-num">32.</span>What is a variable?</div><div class="q-item"><span class="q-num">33.</span>Why are meaningful variable names recommended?</div><div class="q-item"><span class="q-num">34.</span>What does assignment using = mean in Python?</div><div class="q-item"><span class="q-num">35.</span>Why is 17 = n invalid?</div><div class="q-item"><span class="q-num">36.</span>What does dynamically typed mean in the context of Python variables?</div><div class="q-item"><span class="q-num">37.</span>What is the difference between mutable and immutable values?</div><div class="q-item"><span class="q-num">38.</span>Name two immutable Python types listed in the notes.</div><div class="q-item"><span class="q-num">39.</span>Name two mutable Python types listed in the notes.</div><div class="q-item"><span class="q-num">40.</span>What is a keyword in Python?</div><div class="q-item"><span class="q-num">41.</span>Why cannot class be used as an ordinary variable name?</div><div class="q-item"><span class="q-num">42.</span>State two rules for naming Python variables.</div><div class="q-item"><span class="q-num">43.</span>What is a statement?</div><div class="q-item"><span class="q-num">44.</span>What is an expression?</div><div class="q-item"><span class="q-num">45.</span>What does evaluating an expression produce?</div><div class="q-item"><span class="q-num">46.</span>What do and, or, and not do?</div><div class="q-item"><span class="q-num">47.</span>What does int() do?</div><div class="q-item"><span class="q-num">48.</span>What does float() do?</div><div class="q-item"><span class="q-num">49.</span>What does str() do?</div><div class="q-item"><span class="q-num">50.</span>Why does input() usually need a type conversion before arithmetic?</div><div class="q-item"><span class="q-num">51.</span>What is composition in programming?</div><div class="q-item"><span class="q-num">52.</span>What does the modulus operator % return?</div><div class="q-item"><span class="q-num">53.</span>Give two uses of the modulus operator.</div><div class="q-item"><span class="q-num">54.</span>How can % be used to check whether an integer is even?</div><div class="q-item"><span class="q-num">55.</span>How can % be used to extract the rightmost digit?</div><div class="q-item"><span class="q-num">56.</span>What is the difference between = and ==?</div><div class="q-item"><span class="q-num">57.</span>How can a variable use its old value to compute a new value?</div><div class="q-item"><span class="q-num">58.</span>What does x += 1 mean?</div><div class="q-item"><span class="q-num">59.</span>What does y -= 1 mean?</div><div class="q-item"><span class="q-num">60.</span>What is iteration?</div><div class="q-item"><span class="q-num">61.</span>When is a for loop especially useful?</div><div class="q-item"><span class="q-num">62.</span>What does a for loop naturally traverse?</div><div class="q-item"><span class="q-num">63.</span>What is range(stop)?</div><div class="q-item"><span class="q-num">64.</span>What is range(start, stop)?</div><div class="q-item"><span class="q-num">65.</span>What is range(start, stop, step)?</div><div class="q-item"><span class="q-num">66.</span>What does range(10, 0, -2) generate?</div><div class="q-item"><span class="q-num">67.</span>Why is the stop value of range() not included?</div><div class="q-item"><span class="q-num">68.</span>What is a while statement used for?</div><div class="q-item"><span class="q-num">69.</span>What is the basic execution cycle of a while loop?</div><div class="q-item"><span class="q-num">70.</span>Why must a while loop update its loop-control variable when necessary?</div><div class="q-item"><span class="q-num">71.</span>What is an infinite loop?</div><div class="q-item"><span class="q-num">72.</span>State one difference between for and while loops.</div><div class="q-item"><span class="q-num">73.</span>What is the Collatz 3n + 1 sequence?</div><div class="q-item"><span class="q-num">74.</span>What happens to n in the Collatz sequence when n is even?</div><div class="q-item"><span class="q-num">75.</span>What happens to n in the Collatz sequence when n is odd?</div><div class="q-item"><span class="q-num">76.</span>When does the Collatz loop in the notes stop?</div><div class="q-item"><span class="q-num">77.</span>For n = 12, what sequence is produced by the Collatz example?</div><div class="q-item"><span class="q-num">78.</span>What are tables useful for when using loops?</div><div class="q-item"><span class="q-num">79.</span>What does the end argument of print() control?</div><div class="q-item"><span class="q-num">80.</span>What is meant by a two-dimensional table in the context of nested iteration?</div><div class="q-item"><span class="q-num">81.</span>What is a nested loop?</div><div class="q-item"><span class="q-num">82.</span>In a star-pattern program, what can the outer loop represent?</div><div class="q-item"><span class="q-num">83.</span>In a star-pattern program, what can the inner loop represent?</div><div class="q-item"><span class="q-num">84.</span>What does break do inside a loop?</div><div class="q-item"><span class="q-num">85.</span>What does continue do inside a loop?</div><div class="q-item"><span class="q-num">86.</span>What is pass used for?</div><div class="q-item"><span class="q-num">87.</span>What is paired data?</div><div class="q-item"><span class="q-num">88.</span>How can tuples be used to group paired information?</div><div class="q-item"><span class="q-num">89.</span>What is nested data?</div><div class="q-item"><span class="q-num">90.</span>How do nested loops process nested data?</div><div class="q-item"><span class="q-num">91.</span>What is a function?</div><div class="q-item"><span class="q-num">92.</span>Why are functions useful in a program?</div><div class="q-item"><span class="q-num">93.</span>What is the syntax for defining a function?</div><div class="q-item"><span class="q-num">94.</span>What is a parameter?</div><div class="q-item"><span class="q-num">95.</span>What is an argument?</div><div class="q-item"><span class="q-num">96.</span>What is the difference between a parameter and an argument?</div><div class="q-item"><span class="q-num">97.</span>What is a return value?</div><div class="q-item"><span class="q-num">98.</span>What is a fruitful function?</div><div class="q-item"><span class="q-num">99.</span>What is a void function in the terminology used in the notes?</div><div class="q-item"><span class="q-num">100.</span>What happens when a function has no return statement?</div></div><div class="quiz-card" id="mcqQuiz">
+<h3>FA1 Individual Quiz — 6 Marks</h3>
+<p><strong>Secure online assessment:</strong> 12 questions · 0.5 mark each · maximum 6 marks · one attempt per USN.</p>
+<div class="assessment-note">
+<strong>How it works:</strong> The quiz opens on Google Apps Script. The questions and answer key are not stored on this GitHub page.
+Your Name, USN and Section are verified by the backend, and the final score is recorded in the instructor's Google Sheet.
+</div>
+<div class="secure-quiz-grid">
+<div class="secure-quiz-item"><strong>🔐 Server-side questions</strong><span>Questions and correct answers stay in Apps Script.</span></div>
+<div class="secure-quiz-item"><strong>👤 Student verification</strong><span>Only approved Section M/N students can submit.</span></div>
+<div class="secure-quiz-item"><strong>1️⃣ One attempt</strong><span>A second submission for the same USN is blocked.</span></div>
+<div class="secure-quiz-item"><strong>📊 6 marks</strong><span>12 questions are converted to a maximum of 6 marks.</span></div>
+</div>
+<button type="button" class="quiz-btn" onclick="openSecureQuiz()">🔐 Open Secure FA1 Quiz</button>
+<p class="quiz-mini">Quiz window: 9 October 2026 · 9:00 AM–11:00 AM IST</p>
+</div></section>
+
+
+<section id="module-2" class="part module-two">
+  <div class="part-label">MODULE 2 · STRINGS, TUPLES & LISTS</div>
+  <h2>Working with Collections of Data</h2>
+  <p class="part-intro">Learn how Python represents text, groups related values, and stores collections that can be processed, transformed and analyzed.</p>
+  <div class="box" style="margin:18px 0 26px">
+    <h3>Learning route</h3>
+    <div class="flow"><div class="node">Text<br><small>str</small></div><span class="arrow">→</span><div class="node">Grouped values<br><small>tuple</small></div><span class="arrow">→</span><div class="node">Changeable collection<br><small>list</small></div></div>
+    <p class="desc">Use the cycle <strong>Predict → Run → Observe → Explain</strong>. Read each example, predict its output, then run it in the Python Runner below.</p>
+  </div>
+
+  <div class="part-label">PART A</div>
+  <h2>Strings — Text as a Sequence</h2>
+  <p class="part-intro">A string is an immutable sequence of characters. Indexing, slicing, traversal and built-in methods let us inspect and process text.</p>
+
+  <article class="topic" id="m2-strings"><div class="topic-num">33</div><div>
+    <h3>Working with Strings as Single Things and as Parts</h3>
+    <p class="desc">A string can be treated as one complete value or inspected character by character. Index positions start at <code>0</code>; negative indexes count from the end.</p>
+    <div class="four"><div><b>WHOLE</b><span><code>"Python"</code></span></div><div><b>FIRST</b><span><code>word[0]</code> → P</span></div><div><b>LAST</b><span><code>word[-1]</code> → n</span></div><div><b>LENGTH</b><span><code>len(word)</code> → 6</span></div></div>
+    <div class="code-card"><div class="code-head"><span>string_parts.py</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>word = "Python"
+print(word)
+print(word[0])
+print(word[-1])
+print(len(word))</code></pre><div class="output"><b>Output</b><pre>Python
+P
+n
+6</pre></div></div>
+    <div class="checkpoint"><b>Try it</b><span>Replace <code>Python</code> with your name. Predict the first character, last character and length.</span></div>
+  </div></article>
+
+  <article class="topic" id="m2-slices"><div class="topic-num">34</div><div>
+    <h3>Slices, String Comparison, and Membership</h3>
+    <p class="desc">A slice extracts a section using <code>text[start:stop:step]</code>. The start is included, but the stop is excluded. String comparisons are lexicographic and case-sensitive. Use <code>in</code> and <code>not in</code> to test whether a substring occurs.</p>
+    <div class="code-card"><div class="code-head"><span>slices_and_membership.py</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>text = "COMPUTER"
+print(text[0:3])       # first three characters
+print(text[3:])        # from index 3 to the end
+print(text[::-1])      # reversed string
+print("PUT" in text)
+print("put" in text)
+print("PYTHON" < "python")</code></pre><div class="output"><b>Output</b><pre>COM
+PUTER
+RETUPMOC
+True
+False
+True</pre></div></div>
+    <p class="desc"><strong>Remember:</strong> <code>"A" != "a"</code>. Comparisons use character codes, not dictionary meaning. <code>"put" not in text</code> is the negated membership test.</p>
+  </div></article>
+
+  <article class="topic" id="m2-traversal"><div class="topic-num">35</div><div>
+    <h3>Traversal with a for Loop; Looping and Counting</h3>
+    <p class="desc">Traversal means visiting each character in order. A counter records how many characters satisfy a condition.</p>
+    <div class="code-card"><div class="code-head"><span>count_vowels.py</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>word = "programming"
+vowels = "aeiou"
+count = 0
+
+for ch in word:
+    if ch in vowels:
+        count += 1
+
+print("Vowels:", count)</code></pre><div class="output"><b>Output</b><pre>Vowels: 3</pre></div></div>
+    <div class="checkpoint"><b>Predict</b><span>What changes if <code>word = "EDUCATION".lower()</code>? Why is <code>lower()</code> useful?</span></div>
+  </div></article>
+
+  <article class="topic" id="m2-immutable"><div class="topic-num">36</div><div>
+    <h3>Strings Are Immutable</h3>
+    <p class="desc">You cannot change an individual character inside an existing string. Build a new string instead.</p>
+    <div class="code-card"><div class="code-head"><span>immutability.py</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>word = "cat"
+# word[0] = "b"  # TypeError: strings cannot be changed in place
+word = "b" + word[1:]
+print(word)</code></pre><div class="output"><b>Output</b><pre>bat</pre></div></div>
+    <p class="desc">The assignment creates a new string and makes <code>word</code> refer to it. It does not edit the original string.</p>
+  </div></article>
+
+  <article class="topic" id="m2-find"><div class="topic-num">37</div><div>
+    <h3>A find Function, Optional Parameters, and the Built-in find() Method</h3>
+    <p class="desc">A search function can return the position of a match. Python strings provide <code>find(sub[, start[, end]])</code>; it returns the first matching index or <code>-1</code> if the substring is absent. The start and end arguments are optional.</p>
+    <div class="code-card"><div class="code-head"><span>find_text.py</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>message = "learn python with python"
+print(message.find("python"))
+print(message.find("python", 7))
+print(message.find("java"))
+print(message.find("python", 0, 10))</code></pre><div class="output"><b>Output</b><pre>6
+18
+-1
+-1</pre></div></div>
+    <p class="desc"><strong>Optional parameters:</strong> they may be omitted because Python supplies defaults. For example, <code>find("python")</code> searches the whole string.</p>
+  </div></article>
+
+  <article class="topic" id="m2-split-clean"><div class="topic-num">38</div><div>
+    <h3>split(), Cleaning Strings, and String Formatting</h3>
+    <p class="desc"><code>split()</code> separates text into a list of pieces. Cleaning commonly uses <code>strip()</code>, <code>lower()</code>, and <code>replace()</code>. Formatted strings make output readable.</p>
+    <div class="code-card"><div class="code-head"><span>clean_and_format.py</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>raw = "  KIRAN, Python, BITM  "
+clean = raw.strip().lower()
+parts = clean.split(",")
+name = parts[0].title()
+language = parts[1].strip().title()
+college = parts[2].strip().upper()
+
+print(f"{name} studies {language} at {college}.")</code></pre><div class="output"><b>Output</b><pre>Kiran studies Python at BITM.</pre></div></div>
+    <p class="desc">Useful tools: <code>strip()</code> removes surrounding whitespace; <code>split(",")</code> splits at commas; <code>replace(old, new)</code> substitutes text; <code>f"..."</code> inserts values inside braces. The older <code>"{} {}".format(a, b)</code> form also works.</p>
+  </div></article>
+
+  <div class="part-label" style="margin-top:42px">PART B</div>
+  <h2>Tuples — Grouping Related Values</h2>
+  <p class="part-intro">Tuples group related values in a fixed order. They are useful for paired data, multiple assignment, and returning several results from a function.</p>
+
+  <article class="topic" id="m2-tuples"><div class="topic-num">39</div><div>
+    <h3>Tuple Values and Tuple Assignment</h3>
+    <p class="desc">A tuple is an ordered, immutable collection. Parentheses are common but commas create the tuple. A one-item tuple needs a trailing comma.</p>
+    <div class="code-card"><div class="code-head"><span>tuples.py</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>student = ("Anu", 21, "CSE")
+single_item = ("Python",)
+name, age, branch = student
+
+print(student[0])
+print(name, age, branch)
+print(single_item)</code></pre><div class="output"><b>Output</b><pre>Anu
+Anu 21 CSE
+('Python',)</pre></div></div>
+    <p class="desc"><strong>Tuple assignment</strong> unpacks values into variables in order. The number of variables must match the number of values.</p>
+  </div></article>
+
+  <article class="topic" id="m2-return-tuples"><div class="topic-num">40</div><div>
+    <h3>Tuples as Return Values and Composability of Data Structures</h3>
+    <p class="desc">A function can return multiple related results as a tuple. Data structures can also be nested—for example, a list of tuples or a tuple containing lists.</p>
+    <div class="code-card"><div class="code-head"><span>return_multiple.py</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>def min_max(numbers):
+    return min(numbers), max(numbers)
+
+low, high = min_max([8, 3, 12, 5])
+print("Minimum:", low)
+print("Maximum:", high)
+
+marks = [("Anu", 88), ("Ravi", 76), ("Maya", 94)]
+for name, score in marks:
+    print(f"{name}: {score}")</code></pre><div class="output"><b>Output</b><pre>Minimum: 3
+Maximum: 12
+Anu: 88
+Ravi: 76
+Maya: 94</pre></div></div>
+    <div class="checkpoint"><b>Think</b><span>Why is a list of <code>(name, mark)</code> tuples more useful than storing names and marks without a clear relationship?</span></div>
+  </div></article>
+
+  <div class="part-label" style="margin-top:42px">PART C</div>
+  <h2>Lists — Collections You Can Change</h2>
+  <p class="part-intro">Lists store ordered items and are mutable: elements can be updated, added or removed. This makes lists ideal for working with datasets.</p>
+
+  <article class="topic" id="m2-lists"><div class="topic-num">41</div><div>
+    <h3>List Values, Accessing Elements, Length, Membership, Operations and Slices</h3>
+    <p class="desc">Create a list with square brackets. Use indexes to access items, <code>len()</code> to count items, <code>in</code> to test membership, and slices to copy a portion of a list.</p>
+    <div class="code-card"><div class="code-head"><span>list_basics.py</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>marks = [78, 85, 91, 67, 88]
+print(marks[0])
+print(marks[-1])
+print(len(marks))
+print(91 in marks)
+print(marks[1:4])
+print(marks + [95, 82])
+print(marks * 2)</code></pre><div class="output"><b>Output</b><pre>78
+88
+5
+True
+[85, 91, 67]
+[78, 85, 91, 67, 88, 95, 82]
+[78, 85, 91, 67, 88, 78, 85, 91, 67, 88]</pre></div></div>
+    <p class="desc">List operations include concatenation with <code>+</code>, repetition with <code>*</code>, membership with <code>in</code>, and slicing with <code>[start:stop]</code>.</p>
+  </div></article>
+
+  <article class="topic" id="m2-mutable-delete"><div class="topic-num">42</div><div>
+    <h3>Lists Are Mutable; Updating and Deleting Elements</h3>
+    <p class="desc">Unlike strings and tuples, lists can be changed in place. Assign to an index to update an item. Use <code>del</code>, <code>pop()</code>, or <code>remove()</code> to delete items in different ways.</p>
+    <div class="code-card"><div class="code-head"><span>change_a_list.py</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>colours = ["red", "blue", "green"]
+colours[1] = "yellow"
+colours.append("purple")
+del colours[0]
+removed = colours.pop()
+
+print(colours)
+print("Popped:", removed)</code></pre><div class="output"><b>Output</b><pre>['yellow', 'green']
+Popped: purple</pre></div></div>
+    <p class="desc"><code>append(x)</code> adds one item at the end; <code>insert(i, x)</code> adds at an index; <code>remove(x)</code> removes the first matching value; <code>pop(i)</code> removes and returns an item.</p>
+  </div></article>
+
+  <article class="topic" id="m2-aliasing"><div class="topic-num">43</div><div>
+    <h3>Objects and References, Aliasing, and Cloning Lists</h3>
+    <p class="desc">Variables refer to objects. If two variables refer to the same list, they are aliases: a change through either name affects the same object. Create a shallow copy with a slice or <code>copy()</code>.</p>
+    <div class="diagram"><div class="diagram-title">Aliasing versus cloning</div><div class="varbox"><div class="memory"><strong>a</strong><br/>[10, 20, 30]</div><div class="pointer">←→</div><div class="memory"><strong>b = a</strong><br/>same list object</div></div><p style="text-align:center;color:var(--muted)">Cloning with <code>b = a[:]</code> creates a separate outer list.</p></div>
+    <div class="code-card"><div class="code-head"><span>aliasing_vs_copy.py</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>a = [10, 20, 30]
+alias = a
+clone = a[:]
+
+alias[0] = 99
+clone[1] = 77
+
+print("a:", a)
+print("alias:", alias)
+print("clone:", clone)</code></pre><div class="output"><b>Output</b><pre>a: [99, 20, 30]
+alias: [99, 20, 30]
+clone: [10, 77, 30]</pre></div></div>
+    <p class="desc"><strong>Important:</strong> slicing and <code>copy()</code> make shallow copies. If a list contains other mutable lists, nested objects may still be shared.</p>
+  </div></article>
+
+  <article class="topic" id="m2-list-loops"><div class="topic-num">44</div><div>
+    <h3>Lists and for Loops; List Parameters; List Methods</h3>
+    <p class="desc">A <code>for</code> loop processes each item. Lists passed to functions are references to objects, so a function can modify the original list when it uses a mutating method.</p>
+    <div class="code-card"><div class="code-head"><span>list_functions.py</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>def add_bonus(scores, bonus):
+    for i in range(len(scores)):
+        scores[i] += bonus
+
+marks = [60, 72, 85]
+add_bonus(marks, 5)
+print(marks)
+
+numbers = [4, 1, 9, 2]
+numbers.sort()
+numbers.reverse()
+print(numbers)</code></pre><div class="output"><b>Output</b><pre>[65, 77, 90]
+[9, 4, 2, 1]</pre></div></div>
+    <p class="desc">Common methods: <code>append()</code>, <code>extend()</code>, <code>insert()</code>, <code>remove()</code>, <code>pop()</code>, <code>sort()</code>, <code>reverse()</code>, and <code>count()</code>. Methods such as <code>sort()</code> modify the list and usually return <code>None</code>.</p>
+  </div></article>
+
+  <article class="topic" id="m2-pure-modifiers"><div class="topic-num">45</div><div><div>
+    <h3>Pure Functions, Modifiers, and Functions that Produce Lists</h3>
+    <p class="desc">A pure function returns a result without changing its inputs. A modifier changes an object. A function can also build and return a new list.</p>
+    <div class="code-card"><div class="code-head"><span>pure_and_modifier.py</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>def doubled(values):
+    result = []
+    for value in values:
+        result.append(value * 2)
+    return result
+
+def add_item(values, item):
+    values.append(item)  # modifies the original list
+
+data = [2, 4, 6]
+new_data = doubled(data)
+add_item(data, 8)
+
+print("Original after modifier:", data)
+print("Returned list:", new_data)</code></pre><div class="output"><b>Output</b><pre>Original after modifier: [2, 4, 6, 8]
+Returned list: [4, 8, 12]</pre></div></div>
+  </div></div></article>
+
+  <article class="topic" id="m2-string-list-range"><div class="topic-num">46</div><div>
+    <h3>Strings and Lists; Lists and range()</h3>
+    <p class="desc">Convert a string into a list of characters with <code>list()</code>. Convert a list of strings back with <code>"separator".join(items)</code>. Use <code>list(range(...))</code> when you need a list of numbers.</p>
+    <div class="code-card"><div class="code-head"><span>convert_sequences.py</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>letters = list("CODE")
+print(letters)
+print("-".join(letters))
+print(list(range(2, 11, 2)))
+
+words = "learn python today".split()
+print(words)
+print(" ".join(words))</code></pre><div class="output"><b>Output</b><pre>['C', 'O', 'D', 'E']
+C-O-D-E
+[2, 4, 6, 8, 10]
+['learn', 'python', 'today']
+learn python today</pre></div></div>
+  </div></article>
+
+  <article class="topic" id="m2-nested"><div class="topic-num">47</div><div>
+    <h3>Nested Lists and Matrices</h3>
+    <p class="desc">A nested list contains lists as its elements. A matrix can be represented as a list of rows. Use two indexes—<code>matrix[row][column]</code>—to access a cell.</p>
+    <div class="diagram"><div class="diagram-title">A 2 × 3 matrix</div><div class="matrix"><span>2</span><span>4</span><span>6</span><span>1</span><span>3</span><span>5</span></div><p style="text-align:center;color:var(--muted)">Row 0 is <code>[2, 4, 6]</code>; row 1 is <code>[1, 3, 5]</code>.</p></div>
+    <div class="code-card"><div class="code-head"><span>matrix_sum.py</span><button class="copy" onclick="copyCode(this)">Copy</button></div><pre><code>matrix = [
+    [2, 4, 6],
+    [1, 3, 5]
+]
+
+print(matrix[0][2])  # row 0, column 2
+total = 0
+for row in matrix:
+    for value in row:
+        total += value
+
+print("Total:", total)</code></pre><div class="output"><b>Output</b><pre>6
+Total: 21</pre></div></div>
+    <div class="checkpoint"><b>Challenge</b><span>Write a program to calculate the sum of each row in a matrix and display the row sums separately.</span></div>
+  </div></article>
+
+  
+  <div class="box" style="margin:26px 0;border-left:4px solid var(--accent)">
+    <h3>Textbook connection &amp; further reading</h3>
+    <p class="desc">These Module 2 notes follow the concepts and topic sequence in <em>How to Think Like a Computer Scientist: Learning with Python 3</em>, 3rd edition, by Peter Wentworth, Jeffrey Elkner, Allen B. Downey and Chris Meyers.</p>
+    <ul class="checklist">
+      <li><strong>Chapter 5 — Data Types, §5.1 Strings:</strong> approximately pp. 91–106 in the supplied PDF — strings as compound data, indexing, slices, traversal, optional parameters, <code>find()</code>, <code>split()</code> and cleaning text.</li>
+      <li><strong>Chapter 5 — §5.2 Tuples:</strong> approximately pp. 107–110 — grouping data, tuple assignment, return values and composing data structures.</li>
+      <li><strong>Chapter 5 — §5.3 Lists:</strong> approximately pp. 110–120 — list operations, methods, references, aliasing, cloning, loops, functions and nested lists.</li>
+      <li><strong>Appendix B — More datatypes:</strong> begins around p. 275 — mutable versus immutable values and aliasing.</li>
+    </ul>
+    <h3 style="margin-top:22px">Prescribed Textbook</h3>
+    <ol class="checklist">
+      <li><strong>How to Think Like a Computer Scientist: Learning with Python 3</strong> — Peter Wentworth, Jeffrey Elkner, Allen B. Downey and Chris Meyers. Green Tea Press, Wellesley, Massachusetts, 2020.</li>
+    </ol>
+    <h3 style="margin-top:22px">Reference Books</h3>
+    <ol class="checklist">
+      <li><strong>Automate the Boring Stuff with Python</strong> — Al Sweigart. No Starch Press, 2nd Edition, 2020.</li>
+    </ol>
+    <p class="desc">The website explanations and examples are written for this course and are not a verbatim reproduction of the textbook. Use the textbook for deeper explanations and additional exercises.</p>
+  </div>
+
+<div class="box" style="margin:30px 0">
+    <h3>Module 2 — Quick Revision</h3>
+    <ul class="checklist">
+      <li>Strings are ordered and immutable; use indexing, slicing, traversal and methods.</li>
+      <li><code>find()</code> returns an index or <code>-1</code>; <code>split()</code> separates text into a list.</li>
+      <li>Tuples group ordered values and support unpacking and multiple return values.</li>
+      <li>Lists are mutable; indexes and slices access items, and methods can modify the list.</li>
+      <li>Aliasing shares an object; cloning makes a separate outer list.</li>
+      <li>Nested lists can represent tables and matrices.</li>
+    </ul>
+  </div>
+</section>
+
+
+<section class="interactive-lab" id="module-2-interactive" aria-labelledby="module-2-interactive-title">
+  <div class="lab-kicker">Active learning · Module 2</div>
+  <h2 id="module-2-interactive-title">Predict the Output &amp; Debug</h2>
+  <p class="lab-intro">Think about indexing, mutability and list operations before revealing the explanation.</p>
+  <div class="activity-grid">
+    <article class="activity-card"><span class="activity-type">Predict the output</span><h3>1. String slicing</h3><p>What does the slice return?</p><pre><code>word = "PYTHON"
+print(word[1:4])</code></pre><details><summary>Reveal answer &amp; explanation</summary><div class="activity-answer"><strong>Output: YTH</strong><p>Slicing starts at index 1 and stops before index 4. The characters at indexes 1, 2 and 3 are Y, T and H.</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Predict the output</span><h3>2. List mutation</h3><p>What is the list after append?</p><pre><code>nums = [2, 4, 6]
+nums.append(8)
+print(nums)</code></pre><details><summary>Reveal answer &amp; explanation</summary><div class="activity-answer"><strong>Output: [2, 4, 6, 8]</strong><p><code>append()</code> adds one item to the end of the existing list; lists are mutable.</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Debugging challenge</span><h3>3. Fix the list index</h3><p>The list has three items. Why does this code fail, and how can you fix it?</p><pre><code>colors = ["red", "green", "blue"]
+print(colors[3])</code></pre><details><summary>Reveal fix &amp; explanation</summary><div class="activity-answer"><strong>Fix: <code>print(colors[2])</code></strong><p>List indexes start at 0, so the valid indexes are 0, 1 and 2. Index 3 raises an <code>IndexError</code>.</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Predict the output</span><h3>4. Negative string index</h3><p>What is printed?</p><pre><code>word = "PYTHON"
+print(word[-1])</code></pre><details><summary>Reveal answer &amp; explanation</summary><div class="activity-answer"><strong>Output: N</strong><p>Index -1 refers to the last character of a string.</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Predict the output</span><h3>5. String methods</h3><p>What is the result?</p><pre><code>text = "  hello  "
+print(text.strip().upper())</code></pre><details><summary>Reveal answer &amp; explanation</summary><div class="activity-answer"><strong>Output: HELLO</strong><p><code>strip()</code> removes surrounding whitespace, then <code>upper()</code> converts letters to uppercase.</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Predict the output</span><h3>6. Tuple indexing</h3><p>What value is printed?</p><pre><code>point = (4, 9, 12)
+print(point[1])</code></pre><details><summary>Reveal answer &amp; explanation</summary><div class="activity-answer"><strong>Output: 9</strong><p>Tuple indexing starts at zero, so index 1 refers to the second item.</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Predict the output</span><h3>7. List assignment</h3><p>What does the list contain?</p><pre><code>items = ["pen", "book"]
+items[0] = "pencil"
+print(items)</code></pre><details><summary>Reveal answer &amp; explanation</summary><div class="activity-answer"><strong>Output: ['pencil', 'book']</strong><p>Lists are mutable, so an item can be replaced by assigning a new value at its index.</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Predict the output</span><h3>8. List slicing</h3><p>What subset is returned?</p><pre><code>nums = [10, 20, 30, 40, 50]
+print(nums[1:4])</code></pre><details><summary>Reveal answer &amp; explanation</summary><div class="activity-answer"><strong>Output: [20, 30, 40]</strong><p>The start index 1 is included and stop index 4 is excluded.</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Predict the output</span><h3>9. List length</h3><p>What number is printed?</p><pre><code>values = [3, 6]
+values.extend([9, 12])
+print(len(values))</code></pre><details><summary>Reveal answer &amp; explanation</summary><div class="activity-answer"><strong>Output: 4</strong><p><code>extend()</code> adds both items from the second list, leaving four items total.</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Debugging challenge</span><h3>10. Fix string immutability</h3><p>Why does this fail?</p><pre><code>word = "cat"
+word[0] = "b"
+print(word)</code></pre><details><summary>Reveal fix &amp; explanation</summary><div class="activity-answer"><strong>One fix: build a new string.</strong><pre><code>word = "cat"
+word = "b" + word[1:]
+print(word)</code></pre><p>Strings are immutable: individual characters cannot be replaced by index. Create a new string instead.</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Debugging challenge</span><h3>11. Copy a list</h3><p>Why does changing <code>b</code> also affect <code>a</code>?</p><pre><code>a = [1, 2, 3]
+b = a
+b.append(4)
+print(a)</code></pre><details><summary>Reveal fix &amp; explanation</summary><div class="activity-answer"><strong>Fix: create a shallow copy with <code>a.copy()</code>.</strong><pre><code>a = [1, 2, 3]
+b = a.copy()
+b.append(4)
+print(a)</code></pre><p>Assignment makes both names refer to the same list. <code>copy()</code> creates a separate outer list.</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Predict the output</span><h3>12. Nested lists</h3><p>What is printed?</p><pre><code>matrix = [[1, 2], [3, 4]]
+print(matrix[1][0])</code></pre><details><summary>Reveal answer &amp; explanation</summary><div class="activity-answer"><strong>Output: 3</strong><p><code>matrix[1]</code> selects the second inner list, and index 0 selects its first value.</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Predict the output</span><h3>13. Tuple unpacking</h3><p>What are the values of x and y?</p><pre><code>x, y = (7, 2)
+print(x, y)</code></pre><details><summary>Reveal answer &amp; explanation</summary><div class="activity-answer"><strong>Output: 7 2</strong><p>Tuple unpacking assigns the first item to x and the second item to y.</p></div></details></article>
+    <article class="activity-card"><span class="activity-type">Debugging challenge</span><h3>14. Remove an item safely</h3><p>This code fails if "pear" is not present. How can you avoid the error?</p><pre><code>fruits = ["apple", "mango"]
+fruits.remove("pear")
+print(fruits)</code></pre><details><summary>Reveal fix &amp; explanation</summary><div class="activity-answer"><strong>Fix: check membership first.</strong><pre><code>fruits = ["apple", "mango"]
+if "pear" in fruits:
+    fruits.remove("pear")
+print(fruits)</code></pre><p><code>remove()</code> raises a <code>ValueError</code> if the value is absent. The membership test prevents that case.</p></div></details></article>
+
+  </div>
+</section>
+<section class="guided-path" id="guided-learning-path" aria-labelledby="gp-title">
+<div class="gp-tag">Guided Python learning journey</div>
+<h2 id="gp-title">Guided Python Learning Path</h2>
+<p>Follow these checkpoints alongside the existing notes. Your original Module 1 and Module 2 content remains unchanged.</p>
+<div class="gp-progress" role="progressbar" aria-label="Learning path completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="gp-progress"><div class="gp-fill" id="gp-fill"></div></div>
+<p><strong id="gp-progress-text">0 of 5 checkpoints complete</strong> · <span id="gp-percent">0%</span><br/><small style="color:var(--muted)">Progress is saved in this browser only. It does not submit or change official assessment marks.</small></p>
+<div class="gp-grid">
+<article class="gp-step"><span class="gp-tag">01 · Foundation</span><h3>Study Module 1</h3><p>Learn Python basics, variables, expressions, data types, operators and iteration.</p><div class="gp-actions"><a class="gp-btn" href="#part-A">Open Module 1 ↗</a><a class="gp-btn" href="#module-1-interactive">Practise ↗</a></div><label class="gp-check"><input type="checkbox" data-gp-check="1"> Mark complete</label></article>
+<article class="gp-step"><span class="gp-tag">02 · Experiment</span><h3>Run Python code</h3><p>Modify examples, predict results, and test your ideas in the browser-based runner.</p><div class="gp-actions"><a class="gp-btn" href="#python-runner">Open Python Runner ↗</a><a class="gp-btn" href="#practice">Practice programs ↗</a></div><label class="gp-check"><input type="checkbox" data-gp-check="2"> Mark complete</label></article>
+<article class="gp-step"><span class="gp-tag">03 · Work with data</span><h3>Study Module 2</h3><p>Explore strings, tuples, lists, slicing, mutability, aliasing and nested lists.</p><div class="gp-actions"><a class="gp-btn" href="#module-2">Open Module 2 ↗</a><a class="gp-btn" href="#module-2-interactive">Practise ↗</a></div><label class="gp-check"><input type="checkbox" data-gp-check="3"> Mark complete</label></article>
+<article class="gp-step"><span class="gp-tag">04 · Review</span><h3>Check understanding</h3><p>Revise the notes and practice programs, then follow your instructor's assessment instructions and schedule.</p><div class="gp-actions"><a class="gp-btn" href="#assessment">Go to assessment ↗</a></div><label class="gp-check"><input type="checkbox" data-gp-check="4"> Mark complete</label></article>
+<article class="gp-step"><span class="gp-tag">05 · Apply</span><h3>Mini-project: Student Marks Summary</h3><p>Use input, lists, loops and calculations to display student marks and calculate the class average.</p><label class="gp-check"><input type="checkbox" data-gp-check="5"> Mark complete</label></article>
+</div>
+<div class="gp-mini"><h3>Mini-project brief</h3><p>Collect names and marks for three students, store them in lists, display each student's marks, and calculate the average. Try independently before using the starter-code hint.</p><details><summary style="cursor:pointer;font-weight:800">Reveal starter-code hint</summary><pre><code>names = []
+marks = []
+
+# TODO: collect three names and marks
+# TODO: append values to the lists
+# TODO: display each student and their marks
+# TODO: calculate and display the average</code></pre></details></div>
+</section>
+<script>
+(function(){const key='kiranPythonGuidedPathV1';const boxes=[...document.querySelectorAll('[data-gp-check]')];let saved={};try{saved=JSON.parse(localStorage.getItem(key)||'{}')||{}}catch(e){saved={}}boxes.forEach(b=>{b.checked=Boolean(saved[b.dataset.gpCheck]);b.addEventListener('change',()=>{saved[b.dataset.gpCheck]=b.checked;try{localStorage.setItem(key,JSON.stringify(saved))}catch(e){}render()})});function render(){const n=boxes.filter(b=>b.checked).length,p=Math.round(n/boxes.length*100);document.getElementById('gp-fill').style.width=p+'%';document.getElementById('gp-progress-text').textContent=n+' of '+boxes.length+' checkpoints complete';document.getElementById('gp-percent').textContent=p+'%';document.getElementById('gp-progress').setAttribute('aria-valuenow',p)}render()})();
+</script>
+<footer><strong>Kiran Mudaraddi · Python Programming · Modules 1 & 2</strong><br/>Interactive course notes for classroom learning, self-study and lab preparation.</footer>
+<script>
+const topics=[...document.querySelectorAll('.topic')];
+function filterTopics(){const q=document.getElementById('search').value.toLowerCase().trim();topics.forEach(t=>t.classList.toggle('hidden',q && !t.innerText.toLowerCase().includes(q)));}
+function toggleTheme(){document.body.classList.toggle('dark');localStorage.setItem('pyTheme',document.body.classList.contains('dark')?'dark':'light');}
+if(localStorage.getItem('pyTheme')==='dark')document.body.classList.add('dark');
+window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progress').style.width=((h.scrollTop)/(h.scrollHeight-h.clientHeight)*100)+'%';});
+function copyCode(btn){const code=btn.closest('.code-card').querySelector('code').innerText;navigator.clipboard.writeText(code).then(()=>{btn.textContent='Copied!';setTimeout(()=>btn.textContent='Copy',1000)})}
+
+// FA1 secure backend configuration
+const FA1_BACKEND_URL='https://script.google.com/macros/s/AKfycbyM5Gg2CVRP8iG0QnLJsehwrLhfdc4xMbfsm-5-lSjIyaNaMt3BAbPYIPtyL63jo4XS/exec';
+const FA1_QUIZ_URL='https://script.google.com/macros/s/AKfycbyM5Gg2CVRP8iG0QnLJsehwrLhfdc4xMbfsm-5-lSjIyaNaMt3BAbPYIPtyL63jo4XS/exec?page=quiz';
+  const MAX_PROJECT_BYTES=10*1024*1024;
+const MAX_PRESENTATION_BYTES=15*1024*1024;
+
+function getStudentDetails(){
+  return {
+    name:document.getElementById('studentName').value.trim(),
+    usn:document.getElementById('studentUSN').value.trim().toUpperCase(),
+    section:document.getElementById('studentSection').value.toUpperCase()
+  };
+}
+function isFA1Unlocked(showMessage=true){
+  const student=getStudentDetails();
+  const box=document.getElementById('accessMessage');
+  const lock=document.getElementById('fa1Lock');
+  const eligible=student.section==='M'||student.section==='N';
+  const valid=!!student.name && !!student.usn && eligible;
+
+  if(valid){
+    box.innerHTML='✅ <strong>FA1 unlocked.</strong> Section '+student.section+' selected. Final USN verification is performed by the secure backend.';
+    box.style.background='#eef7f1';box.style.borderColor='#b7dfc8';box.style.color='#26724b';
+    if(lock) lock.textContent='🔓 Section '+student.section+' Unlocked';
+  }else{
+    box.innerHTML='Enter your Name, USN and select <strong>M</strong> or <strong>N</strong> to unlock FA1. Final student verification is performed by the secure backend.';
+    box.style.background='';box.style.borderColor='';box.style.color='';
+    if(lock) lock.textContent='🔒 M & N Sections Only';
+  }
+
+  document.querySelectorAll('.fa1-upload-btn').forEach(btn=>{
+    if(btn.id==='projectUploadBtn'||btn.id==='presentationUploadBtn') btn.disabled=!valid;
+  });
+
+  if(showMessage && !valid && student.section && student.section!=='M' && student.section!=='N'){
+    box.innerHTML='⛔ <strong>Access denied.</strong> FA1 submission is available only to Section M and Section N students.';
+    box.scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+  return valid;
+}
+
+function openSecureQuiz(){
+  const student=getStudentDetails();
+  if(!student.name || !student.usn || !(student.section==='M'||student.section==='N')){
+    isFA1Unlocked(true);
+    return;
+  }
+  window.open(FA1_QUIZ_URL,'_blank','noopener,noreferrer');
+}
+
+function setupFA1Access(){
+  ['studentName','studentUSN','studentSection'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el){
+      el.addEventListener('input',()=>isFA1Unlocked(false));
+      el.addEventListener('change',()=>isFA1Unlocked(false));
+      el.addEventListener('blur',()=>isFA1Unlocked(false));
+    }
+  });
+  isFA1Unlocked(false);
+  // Browsers may autofill fields after DOMContentLoaded.
+  // Re-check briefly so the FA1 buttons unlock automatically.
+  [300,800,1500,2500].forEach(ms=>setTimeout(()=>isFA1Unlocked(false),ms));
+}
+window.addEventListener('load',setupFA1Access);
+window.addEventListener('pageshow',()=>setTimeout(()=>isFA1Unlocked(false),100));
+function readFileAsBase64(file){
+  return new Promise((resolve,reject)=>{
+    const reader=new FileReader();
+    reader.onload=()=>resolve(String(reader.result).split(',')[1]||'');
+    reader.onerror=()=>reject(new Error('Could not read the selected file.'));
+    reader.readAsDataURL(file);
+  });
+}
+async function uploadFA1File(kind){
+  if(!isFA1Unlocked(true)) return;
+  const student=getStudentDetails();
+  const input=document.getElementById(kind==='project'?'projectFile':'presentationFile');
+  const status=document.getElementById(kind==='project'?'projectStatus':'presentationStatus');
+  const btn=document.getElementById(kind==='project'?'projectUploadBtn':'presentationUploadBtn');
+  const file=input && input.files ? input.files[0] : null;
+  if(!file){status.textContent='Please select a file first.';return;}
+  const isProject=kind==='project';
+  const allowed=isProject?['doc','docx']:['ppt','pptx'];
+  const ext=(file.name.split('.').pop()||'').toLowerCase();
+  const max=isProject?MAX_PROJECT_BYTES:MAX_PRESENTATION_BYTES;
+  if(!allowed.includes(ext)){status.textContent='⛔ Invalid file type. Please select a '+allowed.join(' or ')+ ' file.';return;}
+  if(file.size>max){status.textContent='⛔ File is too large. Maximum allowed is '+(max/1024/1024)+' MB.';return;}
+  if(!FA1_BACKEND_URL || FA1_BACKEND_URL.includes('PASTE_FA1_')){status.textContent='⚠️ Upload form is ready, but the Google Apps Script backend URL has not been added yet.';return;}
+  btn.disabled=true;status.textContent='Uploading '+file.name+'…';
+  try{
+    const base64=await readFileAsBase64(file);
+    const payload={action:'upload',assessment:'FA1',submissionType:kind,studentName:student.name,usn:student.usn,section:student.section,fileName:file.name,fileType:ext,fileSize:file.size,fileData:base64,submittedAt:new Date().toISOString()};
+    await fetch(FA1_BACKEND_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
+    status.innerHTML='✅ <strong>Submitted.</strong> '+file.name+' has been sent for '+(isProject?'Project · 7 marks':'Presentation · 7 marks')+'.';
+    input.value='';
+  }catch(err){status.textContent='❌ Upload failed. Please try again or contact the instructor.';}
+  finally{isFA1Unlocked(false);}
+}
+
+function toggleMobileMenu(){
+  const open=document.body.classList.toggle('menu-open');
+  const btn=document.querySelector('.mobile-menu-btn');
+  if(btn) btn.setAttribute('aria-expanded',open?'true':'false');
+  document.body.style.overflow=(open && window.innerWidth<=980)?'hidden':'';
+}
+document.addEventListener('click',function(e){
+  const link=e.target.closest('.course-sidebar a');
+  if(link && window.innerWidth<=980){ document.body.classList.remove('menu-open'); document.body.style.overflow=''; }
+});
+window.addEventListener('resize',function(){
+  if(window.innerWidth>980){ document.body.classList.remove('menu-open'); document.body.style.overflow=''; }
+});
+
+
+let pyodideInstance=null;
+let pyodideLoading=null;
+
+function updatePythonLineNumbers(){
+  const code=document.getElementById('pythonCode');
+  const lines=document.getElementById('pythonLineNumbers');
+  if(!code || !lines) return;
+  const n=Math.max(1,code.value.split('\n').length);
+  lines.innerHTML=Array.from({length:n},(_,i)=>'<div>'+(i+1)+'</div>').join('');
+}
+function syncPythonLineNumbers(){
+  const code=document.getElementById('pythonCode');
+  const lines=document.getElementById('pythonLineNumbers');
+  if(code && lines) lines.scrollTop=code.scrollTop;
+}
+function copyPythonCode(){
+  const code=document.getElementById('pythonCode');
+  if(!code) return;
+  navigator.clipboard.writeText(code.value).then(()=>{
+    const status=document.getElementById('pythonStatus');
+    if(status){
+      status.textContent='Code copied to clipboard.';
+      setTimeout(()=>status.textContent='Python engine will load when you first run a program.',1600);
+    }
+  });
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  const code=document.getElementById('pythonCode');
+  if(code){
+    updatePythonLineNumbers();
+    code.addEventListener('input',updatePythonLineNumbers);
+    code.addEventListener('scroll',syncPythonLineNumbers);
+  }
+});
+async function getPyodide(){
+  if(pyodideInstance) return pyodideInstance;
+  if(!pyodideLoading){
+    document.getElementById('pythonStatus').textContent='Loading Python engine… first run may take a few seconds.';
+    pyodideLoading=(async()=>{
+      const mod=await import('https://cdn.jsdelivr.net/pyodide/v0.27.2/full/pyodide.mjs');
+      const py=await mod.loadPyodide();
+      return py;
+    })();
+  }
+  pyodideInstance=await pyodideLoading;
+  return pyodideInstance;
+}
+async function runPythonCode(){
+  const code=document.getElementById('pythonCode').value;
+  const inputText=document.getElementById('pythonInput').value;
+  const out=document.getElementById('pythonOutput');
+  const status=document.getElementById('pythonStatus');
+  if(!code.trim()){out.textContent='Please enter a Python program.';return;}
+  out.textContent='Running…';
+  try{
+    const py=await getPyodide();
+    py.globals.set('JS_CODE',code);
+    py.globals.set('JS_INPUT',inputText);
+    const result=await py.runPythonAsync(`
+import sys, io, builtins, traceback
+_code = JS_CODE
+_input_text = JS_INPUT
+_lines = _input_text.splitlines()
+_index = 0
+_out = io.StringIO()
+def _browser_input(prompt=''):
+    global _index
+    if _index >= len(_lines):
+        raise EOFError('No more input values were provided.')
+    value = _lines[_index]
+    _index += 1
+    print(str(prompt), end='')
+    print(value)
+    return value
+builtins.input = _browser_input
+_old_stdout, _old_stderr = sys.stdout, sys.stderr
+sys.stdout = _out
+sys.stderr = _out
+try:
+    exec(compile(_code, '<student_program>', 'exec'), {'__name__':'__main__'})
+except Exception:
+    traceback.print_exc()
+finally:
+    sys.stdout, sys.stderr = _old_stdout, _old_stderr
+_out.getvalue()
+`);
+    out.textContent=result || '(Program finished with no printed output.)';
+    status.textContent='Program finished. Change the code or input and run it again.';
+  }catch(err){
+    out.textContent='Runner error: '+(err && err.message ? err.message : err);
+    status.textContent='The Python engine could not run this program. Check the code and try again.';
+  }
+}
+function loadPythonExample(){
+  document.getElementById('pythonCode').value=`marks = [78, 85, 91, 67, 88]
+total = 0
+for mark in marks:
+    total += mark
+average = total / len(marks)
+print('Average =', average)`;
+  document.getElementById('pythonInput').value='';
+  updatePythonLineNumbers();
+  document.getElementById('pythonOutput').textContent='Example loaded. Click “Run Python”.';
+  document.getElementById('pythonStatus').textContent='Try changing the values or loop and observe the output.';
+}
+function clearPythonRunner(){
+  document.getElementById('pythonCode').value='';
+  document.getElementById('pythonInput').value='';
+  updatePythonLineNumbers();
+  document.getElementById('pythonOutput').textContent='Ready. Enter a Python program and click “Run Python”.';
+  document.getElementById('pythonStatus').textContent='';
+}
+
+
+// FA1 access gate and 6-mark quiz setup
+if(document.readyState!=='loading') setupFA1Access(); else document.addEventListener('DOMContentLoaded',setupFA1Access);
+</script></body></html>
