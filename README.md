@@ -1,6 +1,6 @@
 # Kiran's Learning Hub
 
-A responsive, single-page learning platform bringing five computer-science subjects into one place:
+A responsive, unified learning platform for five computer-science subjects:
 
 - C Programming
 - Python Programming
@@ -8,20 +8,30 @@ A responsive, single-page learning platform bringing five computer-science subje
 - Algorithms
 - Database Management Systems (DBMS)
 
-Each subject has five syllabus modules. Open a subject card and expand a module to access its topic outline, learning outcomes, classroom example, practice prompt and checklist.
+## Original Python and DSA classrooms
 
-## DBMS syllabus basis
-The five DBMS modules follow the BITM Semester III syllabus supplied for course MBABA312: Introduction to Databases; Relational Model; SQL: Advanced Queries; Normalization: Database Design Theory; and Transaction Processing (10 hours each).
+The original classroom websites have been copied into this repository as separate folders and are linked from their subject pages:
 
-## Important academic note
-C, Python, Data Structures and Algorithms are editable teaching outlines, not verified copies of a specific institutional syllabus. Please align them with the applicable course regulations before treating them as official syllabi.
+- Python: `python-classroom/` — original homepage, learning path, Module 3 page, CSS and JavaScript assets.
+- DSA: `dsa-classroom/` — original homepage, module notes, stack/queue/recursion tools, worked examples and applications.
+
+The original repositories remain unchanged:
+
+- https://github.com/kiranmudaraddi/python
+- https://github.com/kiranmudaraddi/dsa-learning-hub
+
+The Python Module 1 PDF and DSA theory-notes PDF are linked to their original repository-hosted files rather than duplicated as binary files.
+
+## Other subjects
+
+C Programming, Algorithms and DBMS currently use the unified hub's module outlines and classroom examples. The DBMS outline follows the supplied BITM Semester III MBABA312 structure. Please verify other outlines against the applicable official course syllabus before using them as institutional syllabi.
 
 ## Run locally
-Open index.html in a modern browser. No build tools or server are required.
+
+Open `index.html` in a modern browser. No build tools are required.
 
 ## GitHub Pages
-In repository Settings → Pages, set Build and deployment source to **GitHub Actions**. The included workflow deploys the site on pushes to main. Expected URL:
-https://kiranmudaraddi.github.io/learning-hub/
 
-## Existing websites
-This is a new unified website. It does not overwrite the existing Python or DSA websites. Their complete notes, assessment integrations and interactive tools have not yet been migrated. Keep the original sites available until that migration is reviewed.
+The GitHub Actions workflow deploys the site on pushes to `main`.
+
+https://kiranmudaraddi.github.io/learning-hub/
